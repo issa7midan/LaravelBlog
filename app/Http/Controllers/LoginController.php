@@ -27,7 +27,7 @@ class LoginController extends Controller
         // //     return "login fail";
         // //  }
         // // else 
-        // //     return "login fail";
+       //     return "login fail";
         $credentials = request(['email','password']);
         if (!auth()->attempt($credentials))
         {
