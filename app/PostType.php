@@ -11,7 +11,7 @@ class PostType extends Model
     protected $fillable = [
         'postType',
     ];
-    
+    protected $casts = ["type"=>"string", "status"=>"integer"];
     public function post()
     {
         return $this->hasMany('App\Post','postTypeID');

@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name','last_name', 'email', 'password',
     ];
-
+    protected $casts = ["first_name"=>"string", "last_name"=>"string", "email"=>"string", "status"=>"integer"];
     /**
      * The attributes that should be hidden for arrays.
      *

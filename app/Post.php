@@ -12,6 +12,7 @@ class Post extends Model
     protected $fillable = [
         'postTypeID','content',
     ];
+    protected $casts = ["content"=>"string", "status" => "integer"];
     public function User()
     {
         return $this->belongsTo('App\User', 'user_id');

@@ -11,7 +11,7 @@ class Photo extends Model
     protected $fillable = [
         'path'
     ];
-
+    protected $casts  = ["path"=>"string"];
     public function post ()
     {
         return $this->belongsTo('App\Post', 'post_id');
