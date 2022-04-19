@@ -10,9 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 use App\Controllers\UserController;
 use App\Controllers\PostController;
 use App\User;
+
 use App\Http\Controllers\CommentController;
 Route::get('/', function () {
     return view('welcome');
@@ -28,12 +30,6 @@ Route::get('/token',function()
 
 Route::get('/login2','LoginController@test');
 
-Route::get('/hash',function (){
-    $password = "ahmad";
-    $hashed = Hash::make($password);
-    return $hashed;
-});
-
 Route::post('/create','UserController@store');
 
 Route::get('/isit',function()
@@ -44,4 +40,4 @@ Route::get('/isit',function()
     });
 
     Route::get('/comment','PostController@PostComment');
-
+    Route::post('/users/update','UserController@update');
