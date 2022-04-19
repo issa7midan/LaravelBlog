@@ -23,6 +23,7 @@ class postTypeController extends Controller
     public function update(Request $request){
         $postType = PostType::findOrFail($request->id);
         $postType->update($request->all());
+        
     }
 
 }
