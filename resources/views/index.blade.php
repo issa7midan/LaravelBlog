@@ -48,14 +48,14 @@ https://templatemo.com/tm-551-stand-blog
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="index"><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="index">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
@@ -63,13 +63,13 @@ https://templatemo.com/tm-551-stand-blog
                 <a class="nav-link" href="/about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/blog.html">Blog Entries</a>
+                <a class="nav-link" href="/blog">Blog Entries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/post-details.html">Post Details</a>
+                <a class="nav-link" href="/post-details">Post Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/contact.html">Contact Us</a>
+                <a class="nav-link" href="/contact">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -89,7 +89,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Fashion</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Morbi dapibus condimentum</h4></a>
+                <a href="post-details"><h4>Morbi dapibus condimentum</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 12, 2020</a></li>
@@ -105,7 +105,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Nature</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Donec porttitor augue at velit</h4></a>
+                <a href="post-details"><h4>Donec porttitor augue at velit</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 14, 2020</a></li>
@@ -121,7 +121,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Lifestyle</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Best HTML Templates on TemplateMo</h4></a>
+                <a href="/post-details"><h4>Best HTML Templates on TemplateMo</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 16, 2020</a></li>
@@ -137,7 +137,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Fashion</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Responsive and Mobile Ready Layouts</h4></a>
+                <a href="/post-details"><h4>Responsive and Mobile Ready Layouts</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 18, 2020</a></li>
@@ -153,7 +153,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Nature</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Cras congue sed augue id ullamcorper</h4></a>
+                <a href="/post-details"><h4>Cras congue sed augue id ullamcorper</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 24, 2020</a></li>
@@ -169,7 +169,7 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="meta-category">
                   <span>Lifestyle</span>
                 </div>
-                <a href="pages/post-details.html"><h4>Suspendisse nec aliquet ligula</h4></a>
+                <a href="/post-details"><h4>Suspendisse nec aliquet ligula</h4></a>
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">May 26, 2020</a></li>
@@ -219,7 +219,7 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="pages/post-details.html"><h4>Best Template Website for HTML CSS</h4></a>
+                      <a href="/post-details"><h4>Best Template Website for HTML CSS</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 31, 2020</a></li>
@@ -254,7 +254,7 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                     <div class="down-content">
                       <span>Healthy</span>
-                      <a href="pages/post-details.html"><h4>Etiam id diam vitae lorem dictum</h4></a>
+                      <a href="/post-details"><h4>Etiam id diam vitae lorem dictum</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 24, 2020</a></li>
@@ -289,7 +289,7 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                     <div class="down-content">
                       <span>Fashion</span>
-                      <a href="pages/post-details.html"><h4>Donec tincidunt leo nec magna</h4></a>
+                      <a href="/post-details"><h4>Donec tincidunt leo nec magna</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 14, 2020</a></li>
@@ -319,7 +319,7 @@ https://templatemo.com/tm-551-stand-blog
                 </div>
                 <div class="col-lg-12">
                   <div class="main-button">
-                    <a href="pages/blog.html">View All Posts</a>
+                    <a href="/blog">View All Posts</a>
                   </div>
                 </div>
               </div>
@@ -342,15 +342,15 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                     <div class="content">
                       <ul>
-                        <li><a href="pages/post-details.html">
+                        <li><a href="/post-details">
                           <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
                           <span>May 31, 2020</span>
                         </a></li>
-                        <li><a href="pages/post-details.html">
+                        <li><a href="/post-details">
                           <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
                           <span>May 28, 2020</span>
                         </a></li>
-                        <li><a href="pages/post-details.html">
+                        <li><a href="/post-details">
                           <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
                           <span>May 14, 2020</span>
                         </a></li>

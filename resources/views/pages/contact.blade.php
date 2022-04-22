@@ -12,13 +12,13 @@
     <title>Stand Blog - Contact Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('binary/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-stand-blog.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/templatemo-stand-blog.css')}}">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/owl.css')}}">
 <!--
 
 TemplateMo 551 Stand Blog
@@ -44,28 +44,28 @@ https://templatemo.com/tm-551-stand-blog
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="index"><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="index">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog Entries</a>
+                <a class="nav-link" href="blog">Blog Entries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="post-details.html">Post Details</a>
+                <a class="nav-link" href="post-details">Post Details</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="contact">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -201,15 +201,15 @@ https://templatemo.com/tm-551-stand-blog
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('binary/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="{{ asset('binary/assets/js/custom.js')}}"></script>
+    <script src="{{ asset('binary/assets/js/owl.js')}}"></script>
+    <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
+    <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
+    <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field

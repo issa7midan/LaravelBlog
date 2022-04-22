@@ -24,6 +24,24 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
+Route::get('/index',function(){
+    return view('index');
+});
+
+Route::get('/blog',function(){
+    return view('pages.blog');
+});
+
+Route::get('/post-details',function(){
+    return view('pages.post-details');
+});
+
+Route::get('/contact',function(){
+    return view('pages.contact');
+});
+
+
+
 
 Route::post('/login','LoginController@login');
 

@@ -12,13 +12,13 @@
     <title>Stand Blog Posts</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('binary/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-stand-blog.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/templatemo-stand-blog.css')}}">
+    <link rel="stylesheet" href="{{ asset('binary/assets/css/owl.css')}}">
 <!--
 
 TemplateMo 551 Stand Blog
@@ -44,28 +44,28 @@ https://templatemo.com/tm-551-stand-blog
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="index"><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="index">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about">About Us</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="blog.html">Blog Entries</a>
+                <a class="nav-link" href="blog">Blog Entries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="post-details.html">Post Details</a>
+                <a class="nav-link" href="post-details">Post Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="contact">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -124,11 +124,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-01.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-01.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                      <a href="post-details"><h4>Donec tincidunt leo</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 31, 2020</a></li>
@@ -152,11 +152,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-02.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-02.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Suspendisse et metus</h4></a>
+                      <a href="post-details"><h4>Suspendisse et metus</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 22, 2020</a></li>
@@ -180,11 +180,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-03.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-03.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                      <a href="post-details"><h4>Donec tincidunt leo</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 18, 2020</a></li>
@@ -208,11 +208,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-04.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-04.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Mauris ac dolor ornare</h4></a>
+                      <a href="post-details"><h4>Mauris ac dolor ornare</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 16, 2020</a></li>
@@ -236,11 +236,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-05.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-05.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                      <a href="post-details"><h4>Donec tincidunt leo</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 12, 2020</a></li>
@@ -264,11 +264,11 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="assets/images/blog-thumb-06.jpg" alt="">
+                      <img src="{{asset('binary/assets/images/blog-thumb-06.jpg')}}" alt="">
                     </div>
                     <div class="down-content">
                       <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Mauris ac dolor ornare</h4></a>
+                      <a href="post-details"><h4>Mauris ac dolor ornare</h4></a>
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#">May 10, 2020</a></li>
@@ -317,15 +317,15 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                     <div class="content">
                       <ul>
-                        <li><a href="post-details.html">
+                        <li><a href="post-details">
                           <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
                           <span>May 31, 2020</span>
                         </a></li>
-                        <li><a href="post-details.html">
+                        <li><a href="post-details">
                           <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
                           <span>May 28, 2020</span>
                         </a></li>
-                        <li><a href="post-details.html">
+                        <li><a href="post-details">
                           <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
                           <span>May 14, 2020</span>
                         </a></li>
@@ -401,15 +401,15 @@ https://templatemo.com/tm-551-stand-blog
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('binary/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="{{asset('binary/assets/js/custom.js') }}"></script>
+    <script src="{{asset('binary/assets/js/owl.js')}}"></script>
+    <script src="{{asset('binary/assets/js/slick.js')}}"></script>
+    <script src="{{asset('binary/assets/js/isotope.js')}}"></script>
+    <script src="{{asset('binary/assets/js/accordions.js')}}"></script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
