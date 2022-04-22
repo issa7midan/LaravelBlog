@@ -17,7 +17,11 @@ use App\User;
 
 use App\Http\Controllers\CommentController;
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('pages.about');
 });
 
 
