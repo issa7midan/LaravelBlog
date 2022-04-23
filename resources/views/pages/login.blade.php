@@ -13,8 +13,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('binary/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('binary/assets/css/fontawesome.css')}}">
     <link rel="stylesheet" href="{{ asset('binary/assets/css/templatemo-stand-blog.css')}}">

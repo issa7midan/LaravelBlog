@@ -71,6 +71,9 @@ https://templatemo.com/tm-551-stand-blog
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact Us</a>
               </li>
+            </li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
             </ul>
           </div>
         </div>
@@ -434,7 +437,11 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/slick.js') }}"></script>
     <script src="{{ asset('binary/assets/js/isotope.js') }}"></script>
     <script src="{{ asset('binary/assets/js/accordions.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/web.js') }}"></script>
+    <script>
+    //  sendRequest("GET", "token").then(function (response));
 
+    </script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
@@ -445,6 +452,7 @@ https://templatemo.com/tm-551-stand-blog
           }
       }
     </script>
+    
 
   </body>
 </html>
