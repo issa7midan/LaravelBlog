@@ -62,11 +62,12 @@ https://templatemo.com/tm-551-stand-blog
               <li class="nav-item">
                 <a class="nav-link" href="post-details">Post Details</a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="contact">Contact Us</a>
               </li>
-            </li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+       
+            <li class="nav-item active">
+            <a class="nav-link" href="login">Login</a>
           </li>
             </ul>
           </div>
@@ -153,9 +154,9 @@ https://templatemo.com/tm-551-stand-blog
     <script>
       $(document).ready(
         function() {
-          var x = mobileCheck();
+          var isMobile = mobileCheck();
           //alert(x);
-          if(x == true) {
+          if(isMobile == true) {
             var fieldsets = document.getElementsByClassName("fieldsets");
             // for(var i = 0; i<fieldsets.length; i++)
             //   fieldsets[i].style.width = "100%";
