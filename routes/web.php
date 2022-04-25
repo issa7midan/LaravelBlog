@@ -66,3 +66,5 @@ Route::get('/isit',function()
 
     Route::get('/comment','PostController@PostComment');
     Route::post('/users/update','UserController@update');
+
+    Route::get('/test33/{id}', 'CommentController@getCommentByPostID');

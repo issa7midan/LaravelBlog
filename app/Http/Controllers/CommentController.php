@@ -9,7 +9,7 @@ class CommentController extends Controller
     //
     public function create(Request $request)
     {
-        $comment = array(["first_name"=>$request->first_name, "last_name"=>$request->last_name, "email"=>$request->email]);
+        $comment = array(["first_name" => $request->first_name, "last_name"=>$request->last_name, "email"=>$request->email]);
         Comment::create($comment);
     }
 
@@ -18,9 +18,11 @@ class CommentController extends Controller
         Comment::whereID($id)->delete();
     }
 
-    public function viewAll ()
+    public function getCommentByPostID($id)
     {
-       return Comment::all();
+          $comment = Comment::where('post_id',$id)->get();
+        foreach($comment as $comments){
+            echo $comments;
+        }
     }
-
 }
