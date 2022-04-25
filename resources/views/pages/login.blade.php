@@ -87,22 +87,22 @@ https://templatemo.com/tm-551-stand-blog
                       <h2>Send us a message</h2>
                     </div>
                     <div class="content">
-                      <form id="contact" action="" method="post">
+                      <form id="contact" onsubmit="event.preventDefault()">
                         <div class="row">
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="email" type="email" id="email" placeholder="Your Email" required="true">
+                              <input name="email" type="email" id="email" placeholder="Your Email" required="false">
                             </fieldset>
                           </div>
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="password" type="password" id="password" placeholder="Your Password" required="true">
+                              <input name="password" type="password" id="password" placeholder="Your Password" required="false">
                             </fieldset>
                           </div>
 
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Login</button>
+                              <button  id="form-submit" class="main-button" onclick="login()">Login</button>
                             </fieldset>
                           </div>
                         </div>
@@ -143,7 +143,19 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
     <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
     <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-
+    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
+    <script>
+       function login()
+      {
+        var token = sendRequest("GET",'token');
+        var body = {
+          "email": "zain@issa1.com",
+          "password":"test123"
+        };
+        header ={"X-CSRF-TOKEN":token};  
+       sendRequest("POST", 'user/login', body,header); 
+      }
+    </script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the

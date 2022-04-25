@@ -44,10 +44,9 @@ Route::get('/login', function(){
     return view ('pages.login');
 });
 
+Route::post('/user/login','LoginController@login');
 
 
-
-Route::post('/login','LoginController@login');
 
 Route::get('/token',function()
 {
