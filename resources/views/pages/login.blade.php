@@ -102,7 +102,8 @@ https://templatemo.com/tm-551-stand-blog
 
                           <div class="col-lg-12">
                             <fieldset>
-                              <button  id="form-submit" class="main-button" onclick="login()">Login</button>
+                              <button  id="form-submit" class="main-button" onclick="login(document.getElementById('email').value, 
+                              document.getElementById('password').value)">Login</button>
                             </fieldset>
                           </div>
                         </div>
@@ -145,17 +146,23 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
     <script src="{{ asset('binary/assets/js/web.js')}}"></script>
     <script>
-       function login()
+       function login(email, password)
       {
         var token = sendRequest("GET",'token');
+        // var body = {
+        //   "email": email,
+        //   "password": password
+        // };
         var body = {
-          "email": "zain@issa1.com",
-          "password":"test123"
+          "email": $("#email").val(),
+          "password": $("#password").val()
         };
         header ={"X-CSRF-TOKEN":token};  
        sendRequest("POST", 'user/login', body,header); 
+       alert($("#password").val());
       }
     </script>
+
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
@@ -166,6 +173,5 @@ https://templatemo.com/tm-551-stand-blog
           }
       }
     </script>
-
   </body>
 </html>
