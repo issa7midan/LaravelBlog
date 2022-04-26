@@ -29,6 +29,7 @@ class PostController extends Controller
     public function allPosts ()
 
     {
+        
         $post = Post::all();
         return $post;
     }

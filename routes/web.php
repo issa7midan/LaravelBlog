@@ -63,8 +63,17 @@ Route::get('/isit',function()
         $success = json_decode($success,true);
         return $success[0]['password'];
     });
-
-    Route::get('/comment','PostController@PostComment');
-    Route::post('/users/update','UserController@update');
-
-    Route::get('/test33/{id}', 'CommentController@getCommentByPostID');
+Route::get('/currUser',function(){
+      if (auth()->user() !== null)
+      {
+          echo 'hello';
+      }
+      else
+      {
+          abort(403);
+      }
+});
+Route::get('/comment','PostController@PostComment');
+Route::post('/users/update','UserController@update');
+Route::get('/logout', 'LoginController@logout');
+Route::get('/test33/{id}', 'CommentController@getCommentByPostID');
