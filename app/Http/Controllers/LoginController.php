@@ -29,10 +29,4 @@ class LoginController extends Controller
         // return response()->json(['access_token'=>$authToken,]);
         
     }
-
-    public function logout()
-    {
-        auth()->logout();
-        return redirect('/login');
-    }
 }

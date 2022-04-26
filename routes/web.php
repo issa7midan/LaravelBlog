@@ -40,6 +40,11 @@ Route::get('/contact',function(){
     return view('pages.contact');
 });
 
+Route::get('/post',function(){
+    return view('pages.post');
+});
+
+
 Route::get('/login', function(){
     return view ('pages.login');
 });
@@ -75,5 +80,6 @@ Route::get('/currUser',function(){
 });
 Route::get('/comment','PostController@PostComment');
 Route::post('/users/update','UserController@update');
-Route::get('/logout', 'LoginController@logout');
-Route::get('/test33/{id}', 'CommentController@getCommentByPostID');
+Route::get('/logout', 'AuthController@logout');
+Route::get('/authuser','AuthController@authUser');
+Route::post('/writepost', 'PostController@store');

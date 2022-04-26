@@ -12,7 +12,8 @@ class PostController extends Controller
         if (auth()->user() !== null ){
                 $post = array('postTypeID'        => $request->postTypeID, 
                              'user_id'            => $request->user_id,
-                             'content'            => $request->content,);
+                             'content'            => $request->content,
+                             'title'              => $request->title);
                 Post::create($post);
         }
     }
