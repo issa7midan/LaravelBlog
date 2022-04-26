@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
@@ -37,19 +38,25 @@ class UserController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate(['first_name'=> 'required',
-        'last_name' => 'reuired',
+        // $request->validate(['first_name'=> 'required|string|max:30',
+        // 'last_name' => 'reuired|string|max:30',
+        // 'email'     => 'required|email',
+        // 'password'  => 'required|min:8']);
+        
+        $validator = Validator::make($request->all(),['first_name'=> 'required|string|max:30',
+        'last_name' => 'required|string|max:30',
         'email'     => 'required|email',
         'password'  => 'required|min:8']);
-        //
-        $user = array('first_name'        => $request->first_name, 
-                      'last_name'         => $request->last_name,
-                      'email'             => $request->email,
-                      'password'          => Hash::make($request->password));
+        if (!$validator->fails()){
+            $user = array('first_name'        => $request->first_name, 
+                        'last_name'         => $request->last_name,
+                        'email'             => $request->email,
+                        'password'          => Hash::make($request->password));
 
-                      User::create($user);
-                      return response()->json($user);
+                        User::create($user);
+                        return response()->json($user);
     }
+}
 
     /**
      * Display the specified resource.

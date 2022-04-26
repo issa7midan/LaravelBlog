@@ -1,7 +1,10 @@
 function post(title, content)
 {
+
   var token = sendRequest("GET",'token');
-  var user_id = user_id[0].id;
+  var user = sendRequest("GET", 'authuser');
+  user = JSON.parse(user);
+  var user_id = user[0].id;
   var body = {
     "title": $("#title").val(),
     "content": $("#content").val(),

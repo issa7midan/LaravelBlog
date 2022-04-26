@@ -21,8 +21,8 @@ class CommentController extends Controller
     public function getCommentByPostID($id)
     {
           $comment = Comment::where('post_id',$id)->get();
-        foreach($comment as $comments){
-            echo $comments;
+            foreach($comment as $comments){
+                echo $comments;
         }
     }
 }
