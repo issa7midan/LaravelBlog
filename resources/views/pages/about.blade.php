@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('binary/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
+    
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('binary/assets/css/fontawesome.css')}}">
@@ -201,7 +201,7 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
     <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
     <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-
+    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
