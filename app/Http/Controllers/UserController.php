@@ -84,8 +84,10 @@ class UserController extends Controller
     public function update(Request $request)
     {
         //
-        $user = User::findOrFail($request->id);
-        $user->update($request->all());
+        if ( auth()->user() !== null ){
+            $user = User::findOrFail($request->id);
+            $user->update($request->all());
+        }
     }
 
     /**
@@ -96,7 +98,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::whereId($id)->delete();
+        if (auth()->user() !== null )
+            $user = User::whereId($id)->delete();
     }
 
 

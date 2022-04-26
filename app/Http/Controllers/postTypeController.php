@@ -14,7 +14,8 @@ class postTypeController extends Controller
     }
 
     public function destroy(Request $request){
-        $postType = PostType::whereId($request->id)->delete();
+        if (auth()->user() !== null )
+            $postType = PostType::whereId($request->id)->delete();
     }
     public function allTypes(){
         $postType = PostType::all();

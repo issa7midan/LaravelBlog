@@ -27,6 +27,7 @@ class PhotoController extends Controller
 
     public function destroy($id)
     {
+        if (auth()->user() !== null)
         Photo::whereId($id)->delete();
     }
 }
