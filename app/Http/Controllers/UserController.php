@@ -108,6 +108,4 @@ class UserController extends Controller
         if (auth()->user() !== null )
             $user = User::whereId($id)->delete();
     }
-
-
 }
