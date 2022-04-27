@@ -17,7 +17,8 @@ class views{
  constructor(){
   function viewPoint() {
     const {mobileCheck} = require('./web.js');
-    var isMobile = mobileCheck();
+    const Mobile = new webConfigurations();  
+    var isMobile = Mobile.mobileCheck();
     if(isMobile == true) {
       var fieldsets = document.getElementsByClassName("fieldsets");
       // for(var i = 0; i<fieldsets.length; i++)
