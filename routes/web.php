@@ -91,6 +91,11 @@ Route::get('/token',function()
 
 Route::post('/create','UserController@store');
 
-Route::get('/comment','PostController@PostComment');
 Route::post('/users/update','UserController@update');
 
+
+Route::get('/comment/{id}','CommentController@getCommentByPostID');
+Route::get('/test10',function(){
+    $path = storage_path() . "/json/${filename}.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+    $json = json_decode(file_get_contents($path), true); 
+});
