@@ -10,38 +10,102 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 use App\Controllers\UserController;
 use App\Controllers\PostController;
 use App\User;
+
 use App\Http\Controllers\CommentController;
+
+// ************* VIEWS *********************
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('pages.about');
+});
+
+Route::get('/index',function(){
+    return view('index');
+});
+
+Route::get('/blog',function(){
+    return view('pages.blog');
+});
+
+Route::get('/post-details',function(){
+    return view('pages.post-details');
+});
+
+Route::get('/contact',function(){
+    return view('pages.contact');
 });
 
 
-Route::post('/login','LoginController@login');
+
+// *********** LOGIN ROUTES ***********
+Route::get('/login', function(){
+    return view ('pages.login');
+});
+
+Route::post('/user/login','LoginController@login');
+
+Route::get('/currUser',function(){
+      if (auth()->user() !== null)
+      {
+          echo 'hello';
+      }
+      else
+      {
+          abort(403);
+      }
+});
+
+Route::get('/authuser','AuthController@authUser');
+
+Route::get('/logout', 'AuthController@logout');
+
+
+//************ POST ROUTES **************
+Route::post('/writepost', 'PostController@store');
+
+Route::get('/post',function(){
+    return view('pages.post');
+});
+
+Route::post('/updatepost', 'PostController@update');
+
+Route::delete('/deletepost', 'PostController@destroy');
+
+
+//******************* COMMENTS ********************
+
+Route ::post('/writecomment', 'CommentController@create');
+
 
 Route::get('/token',function()
 {
     return csrf_token();
 });
 
-Route::get('/login2','LoginController@test');
-
-Route::get('/hash',function (){
-    $password = "ahmad";
-    $hashed = Hash::make($password);
-    return $hashed;
-});
-
 Route::post('/create','UserController@store');
 
-Route::get('/isit',function()
-    {
-        $success = User::where('email','zain@issa1.com')->get();
-        $success = json_decode($success,true);
-        return $success[0]['password'];
-    });
+Route::post('/users/update','UserController@update');
 
-    Route::get('/comment','PostController@PostComment');
 
+Route::get('/comment/{id}','CommentController@getCommentByPostID');
+
+Route::get('/en.json', function(){
+    $path = resource_path("lang/en.json");
+    $json = file_get_contents($path);
+    return $json;
+    //return resource_path("public/binary/assets/lang/en.json");
+});
+
+Route::get('/de.json', function(){
+    $path = resource_path("lang/de.json");
+    $json = file_get_contents($path);
+    return $json;
+    //return resource_path("public/binary/assets/lang/en.json");
+});

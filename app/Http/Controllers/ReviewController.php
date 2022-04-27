@@ -17,7 +17,8 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        Review::whereID($id)->delete();
+        if (auth()->user() !== null )
+            Review::whereID($id)->delete();
     }
 
     public function viewAll()

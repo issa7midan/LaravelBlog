@@ -9,26 +9,33 @@ class PostController extends Controller
     //
     public function store (Request $request)
     {
-        $post = array('postTypeID'        => $request->postTypeID, 
-                     'user_id'            => $request->user_id,
-                     'content'            => $request->content,);
-        Post::create($post);
+        if (auth()->user() !== null ){
+                $post = array('postTypeID'        => $request->postTypeID, 
+                             'user_id'            => $request->user_id,
+                             'content'            => $request->content,
+                             'title'              => $request->title);
+                Post::create($post);
+        }
     }
 
     public function destroy (Request $request)
     {
-        $post= Post::whereId($request->id)->delete();
+        if (auth()->user() !== null )
+         $post= Post::whereId($request->id)->delete();
     }
 
     public function update (Request $request)
     {
-        $post = Post::findOrFail($request->id);
-        $post->update($request->all());
+        if (auth()->user() !== null){
+            $post = Post::findOrFail($request->id);
+            $post->update($request->all());
+        }
     }
 
     public function allPosts ()
 
     {
+        
         $post = Post::all();
         return $post;
     }

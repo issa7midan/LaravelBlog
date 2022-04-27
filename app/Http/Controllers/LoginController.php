@@ -11,23 +11,7 @@ class LoginController extends Controller
     //
     public function login(Request $request)
     {
-        // $request->validate(['email'=>'required|email',
-        //                     'password'=>'required|min:8']);
-                            
-        // $success = User::where('email',$request->email)->get();
 
-        // //  if (count($success)> 0){
-        // //     $password = json_decode($success,true);
-        // //     $password = $success[0]['password'];
-        // //   if (Hash::check($request->password, $password)) 
-        // // {
-        // //     return "login success";
-        // // }
-        // //     else 
-        // //     return "login fail";
-        // //  }
-        // // else 
-       //     return "login fail";
         $credentials = request(['email','password']);
         if (!auth()->attempt($credentials))
         {
@@ -41,7 +25,8 @@ class LoginController extends Controller
                     ]);
         }
         $user = User::where('email', $request->email)->first();
-        $authToken = $user->createToken('auth-token')->plainTextToken;
-        return response()->json(['access_token'=>$authToken,]);
+        // $authToken = $user->createToken('auth-token')->plainTextToken;
+        // return response()->json(['access_token'=>$authToken,]);
+        
     }
 }
