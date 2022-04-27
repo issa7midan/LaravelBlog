@@ -95,7 +95,17 @@ Route::post('/users/update','UserController@update');
 
 
 Route::get('/comment/{id}','CommentController@getCommentByPostID');
-Route::get('/test10',function(){
-    $path = storage_path() . "/json/${filename}.json"; // ie: /var/www/laravel/app/storage/json/filename.json
-    $json = json_decode(file_get_contents($path), true); 
+
+Route::get('/en.json', function(){
+    $path = resource_path("lang/en.json");
+    $json = file_get_contents($path);
+    return $json;
+    //return resource_path("public/binary/assets/lang/en.json");
+});
+
+Route::get('/de.json', function(){
+    $path = resource_path("lang/de.json");
+    $json = file_get_contents($path);
+    return $json;
+    //return resource_path("public/binary/assets/lang/en.json");
 });
