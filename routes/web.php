@@ -40,34 +40,15 @@ Route::get('/contact',function(){
     return view('pages.contact');
 });
 
-Route::get('/post',function(){
-    return view('pages.post');
-});
 
 
+// *********** LOGIN ROUTES ***********
 Route::get('/login', function(){
     return view ('pages.login');
 });
 
 Route::post('/user/login','LoginController@login');
 
-
-
-Route::get('/token',function()
-{
-    return csrf_token();
-});
-
-Route::get('/login2','LoginController@test');
-
-Route::post('/create','UserController@store');
-
-Route::get('/isit',function()
-    {
-        $success = User::where('email','zain@issa1.com')->get();
-        $success = json_decode($success,true);
-        return $success[0]['password'];
-    });
 Route::get('/currUser',function(){
       if (auth()->user() !== null)
       {
@@ -78,8 +59,30 @@ Route::get('/currUser',function(){
           abort(403);
       }
 });
+
+Route::get('/authuser','AuthController@authUser');
+
+Route::get('/logout', 'AuthController@logout');
+// ************************************
+
+//************ POST ROUTES **************
+Route::post('/writepost', 'PostController@store');
+
+Route::get('/post',function(){
+    return view('pages.post');
+});
+
+Route::post('/updatepost', 'PostController@update');
+
+//***************************************
+
+Route::get('/token',function()
+{
+    return csrf_token();
+});
+
+Route::post('/create','UserController@store');
+
 Route::get('/comment','PostController@PostComment');
 Route::post('/users/update','UserController@update');
-Route::get('/logout', 'AuthController@logout');
-Route::get('/authuser','AuthController@authUser');
-Route::post('/writepost', 'PostController@store');
+

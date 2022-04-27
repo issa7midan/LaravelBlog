@@ -94,21 +94,23 @@ https://templatemo.com/tm-551-stand-blog
                 <div class="col-lg-12">
                   <div class="sidebar-item submit-comment">
                     <div class="content">
-                      <form id="comment" action="#" method="post">
+                      <form id="comment" onsubmit="event.preventDefault()" >
                         <div class="row">
                           <div class="col-md-12 col-sm-12">
                             <fieldset>
-                              <input name="subject" type="text" id="subject" placeholder="Subject">
+                              <input name="subject" type="text" id="title" placeholder="Subject">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                              <textarea name="message" rows="6" id="content" placeholder="Type your comment" required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Submit</button>
+                              <button type="submit" id="form-submit" class="main-button" onclick="Post.createPost(
+                                document.getElementById('title').value, 
+                                document.getElementById('content').value)">Submit</button>
                             </fieldset>
                           </div>
                         </div>
@@ -183,7 +185,10 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
     <script src="{{ asset('binary/assets/js/web.js')}}"></script>
     <script src="{{ asset('binary/assets/js/post.js')}}"></script>
-
+    <script src="{{asset('binary/assets/js/user.js')}}"></script>
+    <script>
+      const Post = new Posts();
+    </script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the

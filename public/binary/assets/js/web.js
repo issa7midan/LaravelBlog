@@ -43,7 +43,8 @@ class webConfigurations{
             return check;
           };
           module.exports = {mobileCheck,}
-    }
+          
+        }
     
 }
 
