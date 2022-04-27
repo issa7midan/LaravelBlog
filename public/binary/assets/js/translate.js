@@ -77,7 +77,9 @@ function checkLanguage() {
   const urlParams = new URLSearchParams(queryString);
   const lang = urlParams.get('lang');
   //console.log(lang);
-  setLocale(lang);
+  if(lang != null)
+    setLocale(lang);
+  setLocale(defaultLocale);
 }
 
 function load(newLocale) {

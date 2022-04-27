@@ -1,4 +1,13 @@
-<!-- Header -->
+<!-- <html>
+  <head>
+  <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
+  </head>  
+  <body>
+    Header
+
+  </body>
+</html> -->
+
 <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -9,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index" StrRes="menu_item_home">home
+                <a class="nav-link" href="/index" StrRes="menu_item_home">home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
@@ -25,7 +34,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/contact" StrRes="menu_item_contact_us">Contact Us</a>
               </li>
-            </li class="nav-item">
+            <li class="nav-item">
             <a class="nav-link" href="/login" StrRes="menu_item_login">Login</a>
           </li>
             </ul>

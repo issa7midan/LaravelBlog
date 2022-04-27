@@ -41,7 +41,7 @@ https://templatemo.com/tm-551-stand-blog
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    @include('header')
+    @include('pages/header')
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -110,23 +110,10 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     
-    @include('footer')
+    @include('pages/footer')
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('binary/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="{{ asset('binary/assets/js/custom.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/owl.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/post.js')}}"></script>
-    <script src="{{asset('binary/assets/js/user.js')}}"></script>
+    @include('pages/includes')
     <script>
       function postCreation()
       {

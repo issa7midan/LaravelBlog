@@ -1,0 +1,39 @@
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ asset('binary/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ asset('binary/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/owl.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/slick.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/isotope.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/accordions.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/web.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/comment.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/post.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/user.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
+
+    <script>
+        const pathName = window.location.pathname;
+        var menuItems = document.getElementsByClassName("nav-item");
+        var children = document.getElementsByClassName("nav-link");
+         //alert(children[5].getAttribute('href'));
+        //alert(menuItems[0].classList);
+
+        //alert(menuItems[0].getFirstChild.getAttribute('href'));
+        if(pathName.length != 1) {
+                for(i = 0; i<menuItems.length; i++) {
+                menuItems[i].classList.remove('active');
+                if(children[i].getAttribute('href') == pathName) {
+                    menuItems[i].classList.add('active');
+                }
+            }
+        }
+        // const urlParams = new URLSearchParams(queryString);
+        // const lang = urlParams.get('lang');
+        //console.log(lang);
+        // if(lang != null)
+            //setLocale(lang);
+        // setLocale(defaultLocale);
+    </script>

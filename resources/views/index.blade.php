@@ -374,22 +374,10 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     @include('pages/footer')
+    @include('pages/includes')
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('binary/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- Additional Scripts -->
-    <script src="{{ asset('binary/assets/js/custom.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/owl.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/slick.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/isotope.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/accordions.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/web.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/comment.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/post.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/user.js') }}"></script>
-    <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
+
     <script>
       
       // const queryString = window.location.search;
@@ -401,7 +389,7 @@ https://templatemo.com/tm-551-stand-blog
     //  sendRequest("GET", "token").then(function (response));
         const lol = new Comment();
         lol.deleteComment();
-
+        
 
     </script>
     <script language = "text/Javascript"> 
