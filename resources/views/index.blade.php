@@ -48,35 +48,39 @@ https://templatemo.com/tm-551-stand-blog
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="index"><h2 StrRes="app_title">stand log<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index">Home
+                <a class="nav-link" href="index" StrRes="menu_item_home">home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link" href="/about" StrRes="menu_item_about_us">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blog">Blog Entries</a>
+                <a class="nav-link" href="/blog" StrRes="menu_item_blog_entries">Blog Entries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/post-details">Post Details</a>
+                <a class="nav-link" href="/post-details" StrRes="menu_item_post_details">Post Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link" href="/contact" StrRes="menu_item_contact_us">Contact Us</a>
               </li>
             </li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/login" StrRes="menu_item_login">Login</a>
           </li>
             </ul>
           </div>
         </div>
+        <select id="data-i18n-switcher" class="locale-switcher">
+            <option value="en">English</option>
+            <option value="de">Arabic (العربية)</option>
+          </select>
       </nav>
     </header>
 
@@ -441,7 +445,14 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/comment.js') }}"></script>
     <script src="{{ asset('binary/assets/js/post.js') }}"></script>
     <script src="{{ asset('binary/assets/js/user.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
     <script>
+      // const queryString = window.location.search;
+      // //console.log(queryString);
+      // const urlParams = new URLSearchParams(queryString);
+      // const lang = urlParams.get('lang');
+      // //console.log(lang);
+      // setLocale(lang);
     //  sendRequest("GET", "token").then(function (response));
         const lol = new Comment();
         lol.deleteComment();
