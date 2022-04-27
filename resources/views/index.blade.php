@@ -44,46 +44,12 @@ https://templatemo.com/tm-551-stand-blog
     </div>  
     <!-- ***** Preloader End ***** -->
 
-    <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="index"><h2 StrRes="app_title">stand log<em>.</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index" StrRes="menu_item_home">home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="/about" StrRes="menu_item_about_us">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/blog" StrRes="menu_item_blog_entries">Blog Entries</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/post-details" StrRes="menu_item_post_details">Post Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact" StrRes="menu_item_contact_us">Contact Us</a>
-              </li>
-            </li class="nav-item">
-            <a class="nav-link" href="/login" StrRes="menu_item_login">Login</a>
-          </li>
-            </ul>
-          </div>
-        </div>
-        <select id="data-i18n-switcher" class="locale-switcher">
-            <option value="en">English</option>
-            <option value="de">Arabic (العربية)</option>
-          </select>
-      </nav>
-    </header>
+    <!-- <include src="{{ (resource_path().('/views/pages/header.html')) }} "></include> -->
+    <!-- <include src="pages/header.html"></include> -->
+    <!-- <header id="index_header">
+    </header> -->
 
+    @include('pages/header')
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     <div class="main-banner header-text">
@@ -407,29 +373,7 @@ https://templatemo.com/tm-551-stand-blog
       </div>
     </section>
 
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="social-icons">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Behance</a></li>
-              <li><a href="#">Linkedin</a></li>
-              <li><a href="#">Dribbble</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <div class="copyright-text">
-              <p>Copyright 2020 Stand Blog Co.
-                    
-                 | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    @include('pages/footer')
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('binary/vendor/jquery/jquery.min.js') }}"></script>
@@ -447,6 +391,7 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/user.js') }}"></script>
     <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
     <script>
+      
       // const queryString = window.location.search;
       // //console.log(queryString);
       // const urlParams = new URLSearchParams(queryString);
@@ -456,6 +401,7 @@ https://templatemo.com/tm-551-stand-blog
     //  sendRequest("GET", "token").then(function (response));
         const lol = new Comment();
         lol.deleteComment();
+
 
     </script>
     <script language = "text/Javascript"> 
