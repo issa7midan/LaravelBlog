@@ -147,7 +147,7 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/web.js')}}"></script>
     <script src="{{ asset('binary/assets/js/login.js')}}"></script>
     <script>
-      const textEntities = new views();
+      const textEntities = new Views();
       $(document).ready(textEntities.viewPoint);
     </script>
 

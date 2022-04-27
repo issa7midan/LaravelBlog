@@ -13,7 +13,7 @@ function login(email, password)
   header ={"X-CSRF-TOKEN":token};  
  sendRequest("POST", 'user/login', body,header); 
 }
-class views{
+class Views{
  constructor(){
   function viewPoint() {
     const {mobileCheck} = require('./web.js');

@@ -1,48 +1,59 @@
-class Posts{
-    constructor(){
-        function createPost (){
-            const {loggedInUser} = require('./user.js');
-            module.exports = {post,}
+class Posts {
+    constructor() {
+
+
+        function updatePost() {
+            const { loggedInUser } = require('./user.js');
+            module.exports = { updatePost, }
         }
-        
-        function updatePost()
-        {
-            const {loggedInUser} = require('./user.js');
-            module.exports = {updatePost,}
+        function createPost() {
+            const { loggedInUser } = require('./user.js');
+            module.exports = { createPost, }
         }
-    }
-     post(title, content)
-    {
-      var token = sendRequest("GET",'token');
-       const users = new user();
-       user = users.loggedInUser();
-      const user_id = user[0].id;
-      var body = {
-        "title": $("#title").val(),
-        "content": $("#content").val(),
-        "user_id":user_id,
-        "postTypeID":1,
-      };
-      
-      const header ={"X-CSRF-TOKEN":token};  
-      console.log(body);
-     sendRequest("POST", 'writepost', body,header); 
+        function deletePost() {
+            module.exports = { deletePost, }
+        }
     }
 
 
-    updatePost(title, content)
-    {
+
+    updatePost(title, content) {
         var token = sendRequest("GET", 'token');
-        const users = new user();
-        user = users.loggedInUser();
+        const users = new User();
+        const user = users.loggedInUser();
         const user_id = user[0].id;
         var body = {
             "title": $("#title").val(),
             "content": $("#content").val(),
-            "user_id":user_id,
-            "postTypeID":1,
+            "user_id": user_id,
+            "postTypeID": 1,
         };
-        header ={"X-CSRF-TOKEN":token};  
-        sendRequest("POST", 'updatepost', body,header); 
+        header = { "X-CSRF-TOKEN": token };
+        sendRequest("POST", 'updatepost', body, header);
     }
+    createPost(title, content) {
+        var token = sendRequest("GET", 'token');
+        const users = new User();
+        const user = users.loggedInUser();
+        const user_id = user[0].id;
+        var body = {
+            "title": $("#title").val(),
+            "content": $("#content").val(),
+            "user_id": user_id,
+            "postTypeID": 1,
+        };
+        const header = { "X-CSRF-TOKEN": token };
+        sendRequest("POST", 'writepost', body, header);
+
+    }
+    deletePost(id) {
+        var token = sendRequest("GET", 'token');
+        header = { "X-CSRF-TOKEN": token };
+        var body = {
+            "id": id
+        };
+        sendRequest("POST", 'deletepost', body, header);
+    }
+
+
 }

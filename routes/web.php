@@ -16,6 +16,8 @@ use App\Controllers\PostController;
 use App\User;
 
 use App\Http\Controllers\CommentController;
+
+// ************* VIEWS *********************
 Route::get('/', function () {
     return view('index');
 });
@@ -63,7 +65,7 @@ Route::get('/currUser',function(){
 Route::get('/authuser','AuthController@authUser');
 
 Route::get('/logout', 'AuthController@logout');
-// ************************************
+
 
 //************ POST ROUTES **************
 Route::post('/writepost', 'PostController@store');
@@ -74,7 +76,13 @@ Route::get('/post',function(){
 
 Route::post('/updatepost', 'PostController@update');
 
-//***************************************
+Route::delete('/deletepost', 'PostController@destroy');
+
+
+//******************* COMMENTS ********************
+
+Route ::post('/writecomment', 'CommentController@create');
+
 
 Route::get('/token',function()
 {

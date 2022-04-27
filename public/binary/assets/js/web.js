@@ -35,7 +35,7 @@ function sendRequestPureJS (httpType, subPath, body = {}, header = "")
         }).responseText;
     return response;
 }
-class webConfigurations{
+class WebConfigurations{
     constructor(){
         function mobileCheck() {
             var check = false;

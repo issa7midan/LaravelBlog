@@ -108,9 +108,7 @@ https://templatemo.com/tm-551-stand-blog
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button" onclick="Post.createPost(
-                                document.getElementById('title').value, 
-                                document.getElementById('content').value)">Submit</button>
+                              <button type="submit" id="form-submit" class="main-button" onclick="postCreation()">Submit</button>
                             </fieldset>
                           </div>
                         </div>
@@ -187,7 +185,14 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/post.js')}}"></script>
     <script src="{{asset('binary/assets/js/user.js')}}"></script>
     <script>
-      const Post = new Posts();
+      function postCreation()
+      {
+        const Post = new Posts();
+        Post.createPost(
+          document.getElementById('title').value, 
+          document.getElementById('content').value);
+      }
+
     </script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field

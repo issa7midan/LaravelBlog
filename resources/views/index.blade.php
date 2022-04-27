@@ -438,8 +438,13 @@ https://templatemo.com/tm-551-stand-blog
     <script src="{{ asset('binary/assets/js/isotope.js') }}"></script>
     <script src="{{ asset('binary/assets/js/accordions.js') }}"></script>
     <script src="{{ asset('binary/assets/js/web.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/comment.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/post.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/user.js') }}"></script>
     <script>
     //  sendRequest("GET", "token").then(function (response));
+        const lol = new Comment();
+        lol.deleteComment();
 
     </script>
     <script language = "text/Javascript"> 
