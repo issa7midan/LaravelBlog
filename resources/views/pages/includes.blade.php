@@ -12,6 +12,7 @@
     <script src="{{ asset('binary/assets/js/web.js') }}"></script>
     <script src="{{ asset('binary/assets/js/comment.js') }}"></script>
     <script src="{{ asset('binary/assets/js/post.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/login.js') }}"></script>
     <script src="{{ asset('binary/assets/js/user.js') }}"></script>
     <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Hash;
+use App\Filter;
 class LoginController extends Controller
 {
     //
