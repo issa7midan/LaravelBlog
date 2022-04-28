@@ -12,8 +12,9 @@ let translations = {};
 // When the page content is ready...
 document.addEventListener("DOMContentLoaded", () => {
   // Translate the page to the default locale
-  setLocale(defaultLocale);
   checkLanguage();
+  setLocale(defaultLocale);
+  
   //bindLocaleSwitcher(defaultLocale);
 });
 
