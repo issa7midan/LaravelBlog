@@ -1,6 +1,7 @@
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
 document.getElementsByTagName('head')[0].appendChild(script);
+var currentLang = 'de';
 
 const mainPath = "127.0.0.1:8000/";
 function sendRequestPureJS (httpType, subPath, body = {}, header = "")
@@ -48,6 +49,14 @@ class WebConfigurations{
             return check;
           }
     
+}
+
+function changeLanguage(lang) {
+    currentLocale = lang;
+    window.localStorage.setItem('lang', lang);
+    var host = window.location.host;
+    var pathName = window.location.pathname;
+    //window.location.href(`${host} + ${pathName} + ?lang=${lang}`)
 }
 
 //   export {mobileCheck};

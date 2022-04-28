@@ -11,7 +11,7 @@
 <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index"><h2 StrRes="app_title">stand log<em>.</em></h2></a>
+          <a class="navbar-brand" href="/index"><h2 StrRes="app_title">stand log<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,9 +40,5 @@
             </ul>
           </div>
         </div>
-        <select id="data-i18n-switcher" class="locale-switcher">
-            <option value="en">English</option>
-            <option value="de">German</option>
-          </select>
       </nav>
     </header>

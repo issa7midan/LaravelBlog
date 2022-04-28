@@ -10,6 +10,14 @@
               <li><a href="#">Dribbble</a></li>
             </ul>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="social-icons">
+              <li onclick="changeLanguage('en')"><a href=""><span style="font-size: 15px; color:white"><i class="flag-icon flag-icon-gb"></i></span> English</a></li>
+              <li onclick="changeLanguage('de')"><a href=""><span style="font-size: 15px;"><i class="flag-icon flag-icon-de"></i></span> Deutsch</a></li>
+            </ul>
+          </div>
           <div class="col-lg-12">
             <div class="copyright-text">
               <p>Copyright 2020 Stand Blog Co.

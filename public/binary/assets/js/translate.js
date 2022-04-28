@@ -4,6 +4,8 @@ const defaultLocale = "en";
 // The active locale
 let locale;
 
+var currentLocale = window.localStorage.getItem('lang');
+
 // Gets filled with active locale translations
 let translations = {};
 
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load translations for the given locale and translate
 // the page to this locale
 async function setLocale(newLocale) {
-  console.log(newLocale);
+  //console.log(newLocale);
   if (newLocale === locale) return;
   const newTranslations =
     await fetchTranslationsFor(newLocale);
@@ -76,10 +78,12 @@ function checkLanguage() {
   //console.log(queryString);
   const urlParams = new URLSearchParams(queryString);
   const lang = urlParams.get('lang');
-  //console.log(lang);
-  if(lang != null)
+  console.log(currentLocale);
+  if(lang != null) {
     setLocale(lang);
-  setLocale(defaultLocale);
+    return;
+  }
+  setLocale(currentLocale);
 }
 
 function load(newLocale) {

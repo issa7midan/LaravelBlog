@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="{{ asset('binary/assets/css/fontawesome.css') }}">
       <link rel="stylesheet" href="{{ asset('binary/assets/css/templatemo-stand-blog.css') }}">
       <link rel="stylesheet" href="{{ asset('binary/assets/css/owl.css') }}">
+      
 
     
 

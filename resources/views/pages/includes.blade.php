@@ -1,6 +1,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('binary/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css" rel="stylesheet"/>
 
     <!-- Additional Scripts -->
     <script src="{{ asset('binary/assets/js/custom.js') }}"></script>
