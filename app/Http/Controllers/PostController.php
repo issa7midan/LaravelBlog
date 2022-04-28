@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Filter;
 class PostController extends Controller
 {
     //
@@ -15,7 +16,10 @@ class PostController extends Controller
                              'content'            => $request->content,
                              'title'              => $request->title);
                 Post::create($post);
+                return Filter::customizedResponse("Success",200);
         }
+        else
+            return Filter::customizedResponse('Unauthorized',403);
     }
 
     public function destroy (Request $request)
@@ -29,14 +33,17 @@ class PostController extends Controller
         if (auth()->user() !== null){
             $post = Post::findOrFail($request->id);
             $post->update($request->all());
+            return Filter::customizedResponse('Success',200);
         }
+        else
+           return Filter::customizedResponse('Unauthorized',403);
     }
 
     public function allPosts ()
 
     {
-        
         $post = Post::all();
+        $post = Filter::customizedResponse($post,200);
         return $post;
     }
     public function PostComment(){

@@ -95,6 +95,10 @@ class UserController extends Controller
             $user = User::findOrFail($request->id);
             $user->update($request->all());
         }
+        else 
+        {
+           return Filter::customizedResponse('Unauthorized',403);
+        }
     }
 
     /**
@@ -107,5 +111,7 @@ class UserController extends Controller
     {
         if (auth()->user() !== null )
             $user = User::whereId($id)->delete();
+        else
+            return Filter::customizedResponse('Unauthorized',403);
     }
 }

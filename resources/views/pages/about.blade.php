@@ -147,6 +147,10 @@ https://templatemo.com/tm-551-stand-blog
           }
       }
     </script>
-
+<script>
+      // const post = new Posts();
+      // var data = post.getAllPosts();
+      //  alert(data.data[0].content);
+</script>
   </body>
 </html>

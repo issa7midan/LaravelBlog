@@ -78,7 +78,7 @@ Route::post('/updatepost', 'PostController@update');
 
 Route::delete('/deletepost', 'PostController@destroy');
 
-
+Route::get('/allposts', 'PostController@allPosts');
 //******************* COMMENTS ********************
 
 Route ::post('/writecomment', 'CommentController@create');
@@ -96,6 +96,9 @@ Route::post('/users/update','UserController@update');
 
 Route::get('/comment/{id}','CommentController@getCommentByPostID');
 
+
+
+//***************************** LOCALIZER **************** */
 Route::get('/en.json', function(){
     $path = resource_path("lang/en.json");
     $json = file_get_contents($path);

@@ -13,6 +13,10 @@ class Posts {
         function deletePost() {
             module.exports = { deletePost, }
         }
+
+        function getAllPosts() {
+            module.exports = { getAllPosts }
+        }
     }
 
 
@@ -53,6 +57,11 @@ class Posts {
             "id": id
         };
         sendRequest("POST", 'deletepost', body, header);
+    }
+    getAllPosts() {
+        var posts = sendRequest("GET", 'allposts');
+        posts = JSON.parse(posts);
+        return posts;
     }
 
 

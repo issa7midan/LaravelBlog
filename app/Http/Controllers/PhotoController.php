@@ -28,6 +28,8 @@ class PhotoController extends Controller
     public function destroy($id)
     {
         if (auth()->user() !== null)
-        Photo::whereId($id)->delete();
+            Photo::whereId($id)->delete();
+        else
+            return Filter::customizedResponse('Unauthorized',403);
     }
 }

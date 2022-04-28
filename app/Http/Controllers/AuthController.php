@@ -17,11 +17,9 @@ class AuthController extends Controller
     {
         if (auth()->user() != null ){
         $user = auth()->user();
-        return $user->where('id',$user->id)->get(['id', 'email', 'first_name', 'last_name']);
+        $user =  $user->where('id',$user->id)->get(['id', 'email', 'first_name', 'last_name']);
+        return Filter::customizedResponse($user,200);
         }
-        return response()->json([
-            'message' => 'The given data was invalid.',
-                'errors'  => [ "You must login" ],
-                ]);
+        return Filter::customizedResponse('Unuthenticated',403);
     }
 }
