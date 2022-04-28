@@ -1,24 +1,8 @@
 class Comment {
-    constructor() {
-
-        function createComment() {
-            module.exports = { createComment };
-        }
-
-        function deleteComment() {
-            const { loggedInUser } = require('./user.js');
-            module.exports = { deleteComment, }
-        }
-
-        function getCommentByPostID() {
-            module.exports = { getCommentByPostID }
-        }
-    }
-
     deleteComment() {
         const users = new User();
         const user = users.loggedInUser();
-        if (user.errors != '200')
+        if (user.responseCode[0] != '200')
             console.log(1);
     }
     createComment(first_name, last_name, email, post_id, review_id) {

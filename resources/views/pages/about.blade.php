@@ -151,7 +151,7 @@ https://templatemo.com/tm-551-stand-blog
       // const post = new Posts();
       // var data = post.getAllPosts();
       //  alert(data.data[0].content);
-      const user = new Authentication();
+      const user = new User();
       alert(user.isAuthenticated());
 
 </script>

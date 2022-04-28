@@ -34,7 +34,6 @@ class Views{
         element.style.width = "50%";
       });
     }
-    module.exports = {viewPoint,}   
    }
   }
 }
