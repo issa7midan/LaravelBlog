@@ -42,7 +42,9 @@ Route::get('/contact',function(){
     return view('pages.contact');
 });
 
-
+Route::get('/blog',function(){
+    return redirect('/blog/1');
+});
 
 // *********** LOGIN ROUTES ***********
 Route::get('/login', function(){
