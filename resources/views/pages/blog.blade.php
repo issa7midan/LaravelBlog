@@ -195,14 +195,15 @@ https://templatemo.com/tm-551-stand-blog
       var response = post.getPostsByWinLocation(window.location.pathname.slice(-1));
       // var response = post.getPostsByWinLocation(`blogPosts/1`);
       // alert(resposne);
+      var commentsResp = new Comment();
       
       displayPosts();
       //alert(response.data[0].title);
     
       function displayPosts() {
+        var comments = 0;
         var postDiv = document.getElementById("post-area");
         postDiv.innerHTML = "";
-       
         for(i=0; i<response.data.length; i++){
           var obj = response.data[i];
           var content = '';
@@ -211,6 +212,9 @@ https://templatemo.com/tm-551-stand-blog
           else
             content = obj.content;
             
+            comments = 0;
+          if (commentsResp.getCommentByPostID(obj.id).statusCode != 400)
+            comments = commentsResp.getCommentByPostID(obj.id).data.length;
           postDiv.innerHTML += 
             `<div class="col-lg-6">
                     <div class="blog-post" id="">
@@ -223,7 +227,7 @@ https://templatemo.com/tm-551-stand-blog
                 <ul class="post-info">
                   <li><a href="#">Admin</a></li>
                   <li><a href="#">${obj.created_at}</a></li>
-                  <li><a href="#">12 Comments</a></li>
+                  <li><a href="#">${comments} Comments</a></li>
                 </ul>
                 <p>${content}</p>
                 <div class="post-options">
@@ -242,9 +246,8 @@ https://templatemo.com/tm-551-stand-blog
           </div>`;
         }
       
-        var post_counts = new Posts();
 
-               var posts_count =  post_counts.getAllPosts();
+               var posts_count =  post.getAllPosts();
           
               postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
               pageNumberDiv = document.getElementById("pageNumber");
