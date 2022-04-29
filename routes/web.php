@@ -96,6 +96,8 @@ Route::post('/users/update','UserController@update');
 
 Route::get('/comment/{id}','CommentController@getCommentByPostID');
 
+Route::get('/post/{id}','PostController@getPostById');
+
 
 
 //***************************** LOCALIZER **************** */

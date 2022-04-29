@@ -54,5 +54,14 @@ class PostController extends Controller
             echo $comment->comment;
         }
     }
+
+    public function getPostById($id) {
+        $post = Post::find($id);
+        if(strlen($post->content) > 0)
+            $post = Filter::customizedResponse($post, 200);
+        else
+            $post = Filter::customizedResponse("No Post", 400);
+        return $post;
+    }
 }
 
