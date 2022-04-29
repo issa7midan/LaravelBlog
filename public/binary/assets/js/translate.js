@@ -13,7 +13,7 @@ let translations = {};
 document.addEventListener("DOMContentLoaded", () => {
   // Translate the page to the default locale
   checkLanguage();
-  setLocale(defaultLocale);
+  //setLocale(defaultLocale);
   
   //bindLocaleSwitcher(defaultLocale);
 });
@@ -75,16 +75,17 @@ function bindLocaleSwitcher(initialValue) {
 }
 
 function checkLanguage() {
-  const queryString = window.location.search;
+  //const queryString = window.location.search;
   //console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const lang = urlParams.get('lang');
+  //const urlParams = new URLSearchParams(queryString);
+  //const lang = urlParams.get('lang');
+  var lang = defaultLocale;
   console.log(currentLocale);
-  if(lang != null) {
-    setLocale(lang);
+  if(currentLocale != null) {
+    setLocale(currentLocale);
     return;
   }
-  setLocale(currentLocale);
+  setLocale(lang);
 }
 
 function load(newLocale) {
