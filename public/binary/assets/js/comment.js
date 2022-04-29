@@ -19,13 +19,9 @@ class Comment {
     }
 
     getCommentByPostID(id) {
-        var body = {
-            "id": id
-        };
-        sendRequest("GET", `comment/${id}`);
-        var comment = sendRequest("GET", 'comment/1');
+        // sendRequest("GET", `comment/${id}`);
+        var comment = sendRequest("GET", `comment/${id}`);
         comment = (JSON.parse(comment));
         return comment;
     }
-
 }
