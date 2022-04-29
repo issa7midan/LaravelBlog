@@ -3,7 +3,7 @@ script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
 document.getElementsByTagName('head')[0].appendChild(script);
 var currentLang = 'de';
 
-const mainPath = "127.0.0.1:8000/";
+const mainPath = "http://127.0.0.1:8000/";
 function sendRequestPureJS (httpType, subPath, body = {}, header = "")
 {
         var response ='';
@@ -20,11 +20,12 @@ function sendRequestPureJS (httpType, subPath, body = {}, header = "")
 }
 
   function sendRequest(httpType, subPath, body = {}, header = {}){
+    var url = mainPath+subPath; 
     var response = 
         $.ajax({
             async: false,
             type: httpType,
-            url: subPath,
+            url: url,
             headers: header,
             data: body
         }).done(function(response){

@@ -51,5 +51,11 @@ class Posts {
         return posts;
     }
 
+    getPostsByWinLocation(id)
+    {
+        var posts = sendRequest("GET",`blogPosts/${id}`);
+        posts = JSON.parse(posts);
+        return posts;
+    }
 
 }

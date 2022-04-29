@@ -107,16 +107,6 @@ https://templatemo.com/tm-551-stand-blog
                     </div>
                   </div>
                 </div>
-                
-                
-                <div class="col-lg-12">
-                  <ul class="page-numbers">
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
@@ -198,16 +188,21 @@ https://templatemo.com/tm-551-stand-blog
     
     @include('pages/footer')
     @include('pages/includes')
+    
     <script>
-      var post = new Posts();
-      var response = post.getAllPosts();
+      // window.location.replace(window.location.href + `/1`);
+    var post = new Posts();
+      var response = post.getPostsByWinLocation(window.location.pathname.slice(-1));
+      // var response = post.getPostsByWinLocation(`blogPosts/1`);
+      // alert(resposne);
       
       displayPosts();
       //alert(response.data[0].title);
-
+    
       function displayPosts() {
         var postDiv = document.getElementById("post-area");
         postDiv.innerHTML = "";
+       
         for(i=0; i<response.data.length; i++){
           var obj = response.data[i];
           var content = '';
@@ -215,7 +210,7 @@ https://templatemo.com/tm-551-stand-blog
             content = obj.content.substr(0,99) + "...";
           else
             content = obj.content;
-
+            
           postDiv.innerHTML += 
             `<div class="col-lg-6">
                     <div class="blog-post" id="">
@@ -246,16 +241,26 @@ https://templatemo.com/tm-551-stand-blog
             </div>
           </div>`;
         }
-        postDiv.innerHTML += `<div class="col-lg-12">
-                  <ul class="page-numbers">
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </div>`;
-      }
+      
+        var post_counts = new Posts();
 
+               var posts_count =  post_counts.getAllPosts();
+          
+              postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
+              pageNumberDiv = document.getElementById("pageNumber");
+              pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
+              ulPageNumber = document.getElementById("ulPageNumber"); 
+              
+              for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
+                    ulPageNumber.innerHTML += `
+                    <li><a href="/blog/${i+1}">${i+1}</a></li>`;
+              }
+              
+              ulPageNumber.innerHTML += `<li><a href="/blog/${Math.ceil(posts_count.data.length/6)}"><i class="fa fa-angle-double-right"></i></a></li>`;
+              
+              
+    }
+//                    <li class="active"><a href="#">2</a></li>
     </script>
 
     <script language = "text/Javascript"> 

@@ -63,5 +63,17 @@ class PostController extends Controller
             $post = Filter::customizedResponse("No Post", 400);
         return $post;
     }
+    public function postByPageNum($id)
+    {
+        $id = ($id -1) * 6;
+        $posts = Post::
+        offset($id)
+        ->limit(6)->get();
+        if (strlen($posts[0]->content) > 0)
+            $posts = Filter::customizedResponse($posts, 200);
+        else
+            $posts = Filter::customizedResponse("No Post", 400);    
+        return $posts;
+    }
 }
 

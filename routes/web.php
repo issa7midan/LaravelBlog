@@ -30,7 +30,7 @@ Route::get('/index',function(){
     return view('index');
 });
 
-Route::get('/blog',function(){
+Route::get('/blog/{id}',function(){
     return view('pages.blog');
 });
 
@@ -79,6 +79,8 @@ Route::post('/updatepost', 'PostController@update');
 Route::delete('/deletepost', 'PostController@destroy');
 
 Route::get('/allposts', 'PostController@allPosts');
+
+Route::get('/blogPosts/{id}','PostController@postByPageNum');
 //******************* COMMENTS ********************
 
 Route ::post('/writecomment', 'CommentController@create');

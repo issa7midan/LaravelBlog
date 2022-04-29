@@ -34,7 +34,9 @@ async function setLocale(newLocale) {
 // locale over the network
 async function fetchTranslationsFor(newLocale) {
   //const response = await fetch(`/lang/${newLocale}.json`);
+  console.log(newLocale);
   var json = load(newLocale);
+  
   const response = await fetch(`${newLocale}.json`, {
     headers : { 
       'Content-Type': 'application/json',
