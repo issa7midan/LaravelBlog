@@ -54,4 +54,9 @@ function changeLanguage(lang) {
     //window.location.href(`${host} + ${pathName} + ?lang=${lang}`)
 }
 
+function get(id) {
+    var obj = document.getElementById(id);
+    return obj;
+}
+
 //   export {mobileCheck};
