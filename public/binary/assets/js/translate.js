@@ -23,8 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
 async function setLocale(newLocale) {
   //console.log(newLocale);
   if (newLocale === locale) return;
+  //alert("lol");
   const newTranslations =
     await fetchTranslationsFor(newLocale);
+  //alert(newTranslations);
   locale = newLocale;
   translations = newTranslations;
   translatePage();
@@ -35,9 +37,9 @@ async function setLocale(newLocale) {
 async function fetchTranslationsFor(newLocale) {
   //const response = await fetch(`/lang/${newLocale}.json`);
   console.log(newLocale);
-  var json = load(newLocale);
-  
-  const response = await fetch(`${newLocale}.json`, {
+  //var json = load(newLocale);
+  //console.log(json);
+  const response = await fetch(`http://127.0.0.1:8000/${newLocale}.json`, {
     headers : { 
       'Content-Type': 'application/json',
       'Accept': 'application/json'

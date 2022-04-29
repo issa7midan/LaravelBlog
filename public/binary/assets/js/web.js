@@ -20,7 +20,7 @@ function sendRequestPureJS (httpType, subPath, body = {}, header = "")
 }
 
   function sendRequest(httpType, subPath, body = {}, header = {}){
-    var url = mainPath+subPath; 
+    var url = mainPath+subPath;
     var response = 
         $.ajax({
             async: false,
