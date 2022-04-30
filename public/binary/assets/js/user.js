@@ -12,4 +12,10 @@ class User {
             return false;
         return true;
     }
+    userById(id)
+    {
+        var user = sendRequest("GET",`user/userById/${id}`);
+        user = JSON.parse(user);
+        return user;
+    }
 }
