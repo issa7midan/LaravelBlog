@@ -11,6 +11,8 @@ class PostDetails {
         var response = sendRequest("GET", `/comment/${id}`);
         response = JSON.parse(response);
         var obj = response.data;
+        if (obj.statusCode != 200)
+          return null;
         return obj;
       }
 }

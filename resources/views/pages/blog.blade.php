@@ -252,16 +252,16 @@ https://templatemo.com/tm-551-stand-blog
             </div>
           </div>`;
         }
-               var posts_count =  post.getAllPosts();
+              var posts_count =  post.getAllPosts();
               postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
               pageNumberDiv = document.getElementById("pageNumber");
               pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
               ulPageNumber = document.getElementById("ulPageNumber"); 
 
           
-               ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
-               ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
-               if (pageNum == 1){
+              ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
+              ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
+              if (pageNum == 1) {
                 elementsViews.hideElement("first");
                 elementsViews.hideElement("previous");
               }
@@ -269,10 +269,9 @@ https://templatemo.com/tm-551-stand-blog
               // for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
                 for (i=0; i< 5 && (Number(pageNum)+i) <= Math.ceil(posts_count.data.length/6); i++){
                 if (Number(pageNum) == Number(pageNum)+i){
-                  ulPageNumber.innerHTML += `
-                    <li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
+                  ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
                 }
-                else{
+                else {
                     ulPageNumber.innerHTML += `
                     <li><a href="/blog/${Number(pageNum)+i}">${Number(pageNum)+i}</a></li>`;
                 }

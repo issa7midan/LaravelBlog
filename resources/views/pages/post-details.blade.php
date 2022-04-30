@@ -283,8 +283,14 @@ https://templatemo.com/tm-551-stand-blog
         var obj = postDetails.getComment(id);
         var numberOfComments = get("numberOfComments");
         var numberOfComments2 = get("numberOfComment2");
-        numberOfComments.innerHTML = `${obj.length} ${langObj.comments}`;
-        numberOfComments2.innerHTML = `${obj.length} ${langObj.comments}`;
+        if (obj != null) {
+          numberOfComments.innerHTML = `${obj.length} ${langObj.comments}`;
+          numberOfComments2.innerHTML = `${obj.length} ${langObj.comments}`;
+        }
+        else {
+          numberOfComments.innerHTML = `0 ${langObj.comments}`;
+          numberOfComments2.innerHTML = `0 ${langObj.comments}`;
+        }
         displayComment(obj);
       }
 
