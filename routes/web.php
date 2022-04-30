@@ -32,6 +32,7 @@ Route::get('/index',function(){
 
 Route::get('/blog/{id}',function(){
     return view('pages.blog');
+
 });
 
 Route::get('/post-details',function(){
@@ -68,7 +69,7 @@ Route::get('/authuser','AuthController@authUser');
 
 Route::get('/logout', 'AuthController@logout');
 
-
+Route::get('/user/userById/{id}','UserController@userById');
 //************ POST ROUTES **************
 Route::post('/writepost', 'PostController@store');
 
