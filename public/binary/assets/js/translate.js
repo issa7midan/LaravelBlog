@@ -29,7 +29,7 @@ async function setLocale(newLocale) {
   //alert(newTranslations);
   locale = newLocale;
   translations = newTranslations;
-  translatePage();
+  await translatePage();
 }
 
 // Retrieve translations JSON object for the given
@@ -52,7 +52,7 @@ async function fetchTranslationsFor(newLocale) {
 // Replace the inner text of each element that has a
 // data-i18n-key attribute with the translation corresponding
 // to its data-i18n-key
-function translatePage() {
+async function translatePage() {
   document
     .querySelectorAll("[StrRes]")
     .forEach(translateElement);
@@ -64,7 +64,7 @@ function translatePage() {
 function translateElement(element) {
   const key = element.getAttribute("StrRes");
   const translation = translations[key];
-  element.innerText = translation;
+  element.innerHTML = translation;
 }
 
 function bindLocaleSwitcher(initialValue) {
@@ -78,7 +78,7 @@ function bindLocaleSwitcher(initialValue) {
   };
 }
 
-function checkLanguage() {
+async function checkLanguage() {
   //const queryString = window.location.search;
   //console.log(queryString);
   //const urlParams = new URLSearchParams(queryString);
@@ -86,10 +86,10 @@ function checkLanguage() {
   var lang = defaultLocale;
   console.log(currentLocale);
   if(currentLocale != null) {
-    setLocale(currentLocale);
+    await setLocale(currentLocale);
     return;
   }
-  setLocale(lang);
+  await setLocale(lang);
 }
 
 function load(newLocale) {
