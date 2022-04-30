@@ -90,7 +90,7 @@ https://templatemo.com/tm-551-stand-blog
                       <ul class="post-info">
                         <li><a href="#">Admin</a></li>
                         <li><a href="#" id="postDate">May 12, 2020</a></li>
-                        <li><a href="#" id="numberOfComments">10 Comments</a></li>
+                        <li><a href="#" id="numberOfComments">Comments</a></li>
                       </ul>
                       
                       <post_content id="postContent">
@@ -147,16 +147,16 @@ https://templatemo.com/tm-551-stand-blog
                       <h2>Your comment</h2>
                     </div>
                     <div class="content">
-                      <form id="comment" action="#" method="post">
+                      <form id="comment" onsubmit="event.preventDefault()">
                         <div class="row">
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                              <input name="name" type="text" id="name" placeholder="Your name">
                             </fieldset>
                           </div>
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email" required="">
+                              <input name="email" type="text" id="email" placeholder="Your email">
                             </fieldset>
                           </div>
                           <div class="col-md-12 col-sm-12">
@@ -166,12 +166,12 @@ https://templatemo.com/tm-551-stand-blog
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" ></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Submit</button>
+                              <button type="submit" id="form-submit" class="main-button" StrRes="comments" onclick="alert(this.innerHTML);">Submit</button>
                             </fieldset>
                           </div>
                         </div>
@@ -258,68 +258,66 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     
-    @include('pages/footer')
+   
 
     @include('pages/includes')
+    @include('pages/footer')
 
     <script>
+      var postDetails = new PostDetails();
       getPost();
 
       function getPost(id = 6) {
-
-        var response = sendRequest("GET", `/post/${id}`);
-        response = JSON.parse(response);
-        var obj = response.data;
-        //alert(obj.);
+        var obj = postDetails.getPost(id);
         var postTitle = get("postTitle");
         var postDate = get("postDate");
-        var numberOfComments = get("numberOfComments");
         var postContent = get("postContent");
-        var numberOfComment2 = get("numberOfComment2");
         postTitle.innerHTML = obj.title;
         postDate.innerHTML = obj.created_at;
-        //numberOfComments.innerHTML = obj.
         postContent.innerHTML = obj.content;
         getComment();
-
-        //alert(postTitle.innerHTML);
       }
 
       function getComment(id = 6) {
-        var response = sendRequest("GET", `/comment/${id}`);
-        response = JSON.parse(response);
-        var obj = response.data;
+        var langObj = getLangObject();
+        var obj = postDetails.getComment(id);
+        var numberOfComments = get("numberOfComments");
+        var numberOfComments2 = get("numberOfComment2");
+        numberOfComments.innerHTML = `${obj.length} ${langObj.comments}`;
+        numberOfComments2.innerHTML = `${obj.length} ${langObj.comments}`;
         displayComment(obj);
       }
 
       function displayComment(obj) {
-        
         var ul = get("ulCommentSide");
         ul.innerHTML = "";
-        var li = create("li");
-        var imgDiv = create("div");
-        imgDiv.classList.add("author-thumb");
-        li.appendChild(imgDiv);
-
-        var commentDiv = create("div");
-        commentDiv.classList.add("right-content");
-        var h4 = create("h4");
-        h4.innerHTML = "charles Kate";
-        var dateSpan = create("span");
-        dateSpan.innerHTML = "May 15, 2022";
-        h4.appendChild(dateSpan);
-        var contentParag = create("p");
-        contentParag.innerHTML = "Fusce ornare mollis eros. Duis et diam vitae justo fringilla condimentum eu quis leo. Vestibulum id turpis porttitor sapien facilisis scelerisque. Curabitur a nisl eu lacus convallis eleifend posuere id tellus";
-        commentDiv.appendChild(h4);
-        commentDiv.appendChild(contentParag);
-        li.appendChild(commentDiv);
-        ul.appendChild(li);
+        for (elem in obj) {
+          var li = create("li");
+          var br = create("br");
+          var commentDiv = create("div");
+          commentDiv.classList.add("right-content");
+          var h4 = create("h4");
+          h4.innerHTML = `${obj[elem].first_name} ${obj[elem].last_name}`;
+          var h6 = create("h6");
+          h6.innerHTML = obj[elem].email;
+          var dateSpan = create("span");
+          dateSpan.innerHTML = obj[elem].created_at;
+          h4.appendChild(dateSpan);
+          var contentParag = create("p");
+          contentParag.innerHTML = obj[elem].comment;
+          commentDiv.appendChild(h4);
+          commentDiv.appendChild(br);
+          commentDiv.appendChild(h6);
+          commentDiv.appendChild(contentParag);
+          li.appendChild(commentDiv);
+          ul.appendChild(li);
+          ul.appendChild(br);
+        };
+        
+        
       }
 
-      function create(id) {
-        var obj = document.createElement(id);
-        return obj;
-      }
+      
 
     </script>
 

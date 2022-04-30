@@ -59,4 +59,15 @@ function get(id) {
     return obj;
 }
 
+function getLangObject() {
+    var lang = sendRequest("GET", `${window.localStorage.getItem('lang')}.json`);
+    var langObj =JSON.parse(lang);
+    return langObj;
+}
+
+function create(id) {
+    var obj = document.createElement(id);
+    return obj;
+}
+
 //   export {mobileCheck};
