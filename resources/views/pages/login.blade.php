@@ -77,8 +77,9 @@ https://templatemo.com/tm-551-stand-blog
       </center>
       
     </section>
-    @include('pages/footer')
     @include('pages/includes')
+    @include('pages/footer')
+    
     <script>
       const textEntities = new Views();
       $(document).ready(textEntities.viewPoint);

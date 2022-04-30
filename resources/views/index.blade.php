@@ -373,9 +373,9 @@ https://templatemo.com/tm-551-stand-blog
         </div>
       </div>
     </section>
-
-    @include('pages/footer')
     @include('pages/includes')
+    @include('pages/footer')
+
 
 
 

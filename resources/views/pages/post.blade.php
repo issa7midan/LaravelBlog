@@ -109,11 +109,11 @@ https://templatemo.com/tm-551-stand-blog
       </div>
     </section>
 
-    
+    @include('pages/includes')
     @include('pages/footer')
 
 
-    @include('pages/includes')
+    
     <script>
       function postCreation()
       {

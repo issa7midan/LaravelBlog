@@ -146,10 +146,10 @@ https://templatemo.com/tm-551-stand-blog
       </div>
     </section>
 
-    
+    @include('pages/includes')
     @include('pages/footer')
 
-    @include('pages/includes')
+    
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
