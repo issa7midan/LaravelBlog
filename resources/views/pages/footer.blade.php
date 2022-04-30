@@ -20,11 +20,28 @@
           </div>
           <div class="col-lg-12">
             <div class="copyright-text">
-              <p>Copyright 2020 Stand Blog Co.
+              <p id="copyrights">Copyright 2020 Stand Blog Co.
                     
-                 | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
+                 | Design: <a rel='nofollow' href='#' target='blank' id="companyName">Puzzles IT </a>
+                </p>
+                
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      var langObj = getLangObject();
+      var copyrights = get("copyrights");
+      copyrights.StrRes = "copyrights";
+      copyrights.innerHTML = `${langObj.copyrights} `;
+      var companyName = create("a");
+      companyName.rel = "nofollow";
+      companyName.href = "#";
+      companyName.target = "blank";
+      companyName.StrRes = "company_name";
+      companyName.innerHTML = langObj.company_name;
+      copyrights.appendChild(companyName);
+
+    </script>
