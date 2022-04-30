@@ -186,13 +186,15 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     
-    @include('pages/footer')
+  
     @include('pages/includes')
-    
+    @include('pages/footer')
     <script>
-      // window.location.replace(window.location.href + `/1`);
+      // 
+
     var post = new Posts();
-      var response = post.getPostsByWinLocation(window.location.pathname.slice(-1));
+      var pageNum = window.location.pathname.split('/').pop();
+      var response = post.getPostsByWinLocation(pageNum);
       // var response = post.getPostsByWinLocation(`blogPosts/1`);
       // alert(resposne);
       var commentsResp = new Comment();
@@ -201,11 +203,15 @@ https://templatemo.com/tm-551-stand-blog
       //alert(response.data[0].title);
     
       function displayPosts() {
+        var elementsViews = new Views();
+        var user = new User();
+       
         var comments = 0;
         var postDiv = document.getElementById("post-area");
         postDiv.innerHTML = "";
         for(i=0; i<response.data.length; i++){
           var obj = response.data[i];
+          var userResp = user.userById(obj.user_id);
           var content = '';
           if(obj.content.length > 100)
             content = obj.content.substr(0,99) + "...";
@@ -213,6 +219,7 @@ https://templatemo.com/tm-551-stand-blog
             content = obj.content;
             
             comments = 0;
+            
           if (commentsResp.getCommentByPostID(obj.id).statusCode != 400)
             comments = commentsResp.getCommentByPostID(obj.id).data.length;
           postDiv.innerHTML += 
@@ -225,7 +232,7 @@ https://templatemo.com/tm-551-stand-blog
                 <span>Lifestyle</span>
                 <a href="post-details" id=post${obj.id}><h4>${obj.title}</h4></a>
                 <ul class="post-info">
-                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">${userResp.data.first_name}  ${userResp.data.last_name}</a></li>
                   <li><a href="#">${obj.created_at}</a></li>
                   <li><a href="#">${comments} Comments</a></li>
                 </ul>
@@ -245,23 +252,40 @@ https://templatemo.com/tm-551-stand-blog
             </div>
           </div>`;
         }
-      
-
                var posts_count =  post.getAllPosts();
-          
               postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
               pageNumberDiv = document.getElementById("pageNumber");
               pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
               ulPageNumber = document.getElementById("ulPageNumber"); 
-              
-              for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
-                    ulPageNumber.innerHTML += `
-                    <li><a href="/blog/${i+1}">${i+1}</a></li>`;
+
+          
+               ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
+               ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
+               if (pageNum == 1){
+                elementsViews.hideElement("first");
+                elementsViews.hideElement("previous");
               }
-              
-              ulPageNumber.innerHTML += `<li><a href="/blog/${Math.ceil(posts_count.data.length/6)}"><i class="fa fa-angle-double-right"></i></a></li>`;
-              
-              
+            
+              // for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
+                for (i=0; i< 5 && (Number(pageNum)+i) <= Math.ceil(posts_count.data.length/6); i++){
+                if (Number(pageNum) == Number(pageNum)+i){
+                  ulPageNumber.innerHTML += `
+                    <li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
+                }
+                else{
+                    ulPageNumber.innerHTML += `
+                    <li><a href="/blog/${Number(pageNum)+i}">${Number(pageNum)+i}</a></li>`;
+                }
+            }
+              ulPageNumber.innerHTML += `<li id ="next"><a href="/blog/${Number(pageNum)+1}"><i class="fa fa-angle-right"></i></a></li>`;
+              ulPageNumber.innerHTML += `<li id ="last"><a href="/blog/${Math.ceil(posts_count.data.length/6)}"><i class="fa fa-angle-double-right"></i></a></li>`;
+              if (pageNum == Math.ceil(posts_count.data.length/6)){
+                elementsViews.hideElement("next");
+                elementsViews.hideElement("last");
+               
+              }
+              if (pageNum <=0)
+              window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
     }
 //                    <li class="active"><a href="#">2</a></li>
     </script>
