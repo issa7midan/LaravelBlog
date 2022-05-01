@@ -192,20 +192,16 @@ https://templatemo.com/tm-551-stand-blog
     <script>
       // 
 
-    var post = new Posts();
+      var post = new Posts();
       var pageNum = window.location.pathname.split('/').pop();
       var response = post.getPostsByWinLocation(pageNum);
-      // var response = post.getPostsByWinLocation(`blogPosts/1`);
-      // alert(resposne);
       var commentsResp = new Comment();
-      
+      var posts_count =  post.getAllPosts();
+      var pageCount = Math.ceil(posts_count.data.length/6);
       displayPosts();
-      //alert(response.data[0].title);
-    
       function displayPosts() {
         var elementsViews = new Views();
         var user = new User();
-       
         var comments = 0;
         var postDiv = document.getElementById("post-area");
         postDiv.innerHTML = "";
@@ -217,13 +213,15 @@ https://templatemo.com/tm-551-stand-blog
             content = obj.content.substr(0,99) + "...";
           else
             content = obj.content;
-            
-            comments = 0;
+          comments = 0;
             
           if (commentsResp.getCommentByPostID(obj.id).statusCode != 400)
             comments = commentsResp.getCommentByPostID(obj.id).data.length;
+
+
           postDiv.innerHTML += 
-            `<div class="col-lg-6">
+            `          
+          <div class="col-lg-6">
                     <div class="blog-post" id="">
                       <div class="blog-thumb">
                         <img src="{{asset('binary/assets/images/blog-thumb-01.jpg')}}" alt="">
@@ -252,7 +250,7 @@ https://templatemo.com/tm-551-stand-blog
             </div>
           </div>`;
         }
-              var posts_count =  post.getAllPosts();
+           
               postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
               pageNumberDiv = document.getElementById("pageNumber");
               pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
@@ -265,11 +263,23 @@ https://templatemo.com/tm-551-stand-blog
                 elementsViews.hideElement("first");
                 elementsViews.hideElement("previous");
               }
-            
+              var cieler = Number(pageNum);
+            //&& (Number(pageNum)+i) <= Math.ceil(posts_count.data.length/6)
               // for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
-                for (i=0; i< 5 && (Number(pageNum)+i) <= Math.ceil(posts_count.data.length/6); i++){
+                
+                if (cieler + 5 > pageCount){
+                  for (i=0; i< 5 ; i++){ 
+                    if ((pageCount-4)+i == Number(pageNum)){
+                      ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${(pageCount-4)+1}">${(pageCount-4)+i}</a></li>`;
+                    }
+                     else {
+                         ulPageNumber.innerHTML += `<li><a href="/blog/${(pageCount-4)+i}">${(pageCount-4)+i}</a></li>`;
+                    }
+              }
+          }else {
+              for (i=0; i< 5 ; i++){ 
                 if (Number(pageNum) == Number(pageNum)+i){
-                  ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
+                    ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
                 }
                 else {
                     ulPageNumber.innerHTML += `
@@ -277,15 +287,15 @@ https://templatemo.com/tm-551-stand-blog
                 }
             }
               ulPageNumber.innerHTML += `<li id ="next"><a href="/blog/${Number(pageNum)+1}"><i class="fa fa-angle-right"></i></a></li>`;
-              ulPageNumber.innerHTML += `<li id ="last"><a href="/blog/${Math.ceil(posts_count.data.length/6)}"><i class="fa fa-angle-double-right"></i></a></li>`;
+              ulPageNumber.innerHTML += `<li id ="last"><a href="/blog/${pageCount}"><i class="fa fa-angle-double-right"></i></a></li>`;
               if (pageNum == Math.ceil(posts_count.data.length/6)){
                 elementsViews.hideElement("next");
                 elementsViews.hideElement("last");
-               
               }
               if (pageNum <=0)
-              window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
+                window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
     }
+  }
 //                    <li class="active"><a href="#">2</a></li>
     </script>
 

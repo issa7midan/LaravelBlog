@@ -273,7 +273,7 @@ https://templatemo.com/tm-551-stand-blog
         var postDate = get("postDate");
         var postContent = get("postContent");
         postTitle.innerHTML = obj.title;
-        postDate.innerHTML = obj.created_at;
+        postDate.inn  erHTML = obj.created_at;
         postContent.innerHTML = obj.content;
         getComment();
       }
