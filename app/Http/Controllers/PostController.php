@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Filter;
+use DB;
 class PostController extends Controller
 {
     //
@@ -66,9 +67,12 @@ class PostController extends Controller
     public function postByPageNum($id)
     {
         $id = ($id -1) * 6;
-        $posts = Post::
-        offset($id)
-        ->limit(6)->get();
+        $posts = DB::table("users")
+        ->join("posts",'users.id','=','posts.user_id')
+        ->offset($id)
+        ->limit(6)
+        ->select("posts.*", "users.first_name", "users.last_name")
+        ->get();
         if (strlen($posts[0]->content) > 0)
             $posts = Filter::customizedResponse($posts, 200);
         else

@@ -210,7 +210,7 @@ https://templatemo.com/tm-551-stand-blog
         postDiv.innerHTML = "";
         for(i=0; i<response.data.length; i++){
           var obj = response.data[i];
-          var userResp = user.userById(obj.user_id);
+          // var userResp = user.userById(obj.user_id);
           var content = '';
           
             if (obj.id == comments.data[i].post_id)
@@ -245,7 +245,7 @@ https://templatemo.com/tm-551-stand-blog
           var aFullName = create("a");
           var aDate = create("a");
           var aNumberOfComments = create("a");
-          aFullName.innerHTML = `${userResp.data.first_name}  ${userResp.data.last_name}`;
+          aFullName.innerHTML = `${obj.first_name}  ${obj.last_name}`;
           aDate.innerHTML = obj.created_at;
           aNumberOfComments.innerHTML = `${commentCount} comments`;
           var p = create("p");
