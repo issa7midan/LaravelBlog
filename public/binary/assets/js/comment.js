@@ -24,4 +24,10 @@ class Comment {
         comment = (JSON.parse(comment));
         return comment;
     }
+    getCommentCount()
+    {
+        var comment = sendRequest("GET", 'commentsCount');
+        comment = (JSON.parse(comment));
+        return comment;
+    }
 }

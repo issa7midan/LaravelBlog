@@ -5,6 +5,7 @@ use App\Filter;
 use App\Comment;
 use Illuminate\Http\Request;
 use Response;
+use DB;
 class CommentController extends Controller
 {
     public $restful = true;
@@ -36,5 +37,9 @@ class CommentController extends Controller
             $comment = Filter::customizedResponse("No Post",400);
         return $comment;
     }
-
+    public function commentsCount()
+    {
+        $comments =  DB::select('select count(comment)as comments ,posts.id as `post_id` from posts LEFT JOIN comments ON  (posts.id = post_id)  GROUP BY posts.id');
+        return $comments = Filter::customizedResponse($comments,200);
+    }
 }

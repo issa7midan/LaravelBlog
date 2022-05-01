@@ -198,57 +198,133 @@ https://templatemo.com/tm-551-stand-blog
       var commentsResp = new Comment();
       var posts_count =  post.getAllPosts();
       var pageCount = Math.ceil(posts_count.data.length/6);
+      var elementsViews = new Views();
+      var user = new User();
+      var comments ;
       displayPosts();
+
       function displayPosts() {
-        var elementsViews = new Views();
-        var user = new User();
-        var comments = 0;
+        comments = commentsResp.getCommentCount();
         var postDiv = document.getElementById("post-area");
+        var commentCount = 0;
         postDiv.innerHTML = "";
         for(i=0; i<response.data.length; i++){
           var obj = response.data[i];
           var userResp = user.userById(obj.user_id);
           var content = '';
+          
+            if (obj.id == comments.data[i].post_id)
+              commentCount = comments.data[i].comments;
+            else
+              commentCount = 0;  
+          
           if(obj.content.length > 100)
             content = obj.content.substr(0,99) + "...";
           else
             content = obj.content;
-          comments = 0;
-            
-          if (commentsResp.getCommentByPostID(obj.id).statusCode != 400)
-            comments = commentsResp.getCommentByPostID(obj.id).data.length;
-
-
-          postDiv.innerHTML += 
-            `          
-          <div class="col-lg-6">
-                    <div class="blog-post" id="">
-                      <div class="blog-thumb">
-                        <img src="{{asset('binary/assets/images/blog-thumb-01.jpg')}}" alt="">
-                      </div>
-            <div class="down-content">
-                <span>Lifestyle</span>
-                <a href="post-details" id=post${obj.id}><h4>${obj.title}</h4></a>
-                <ul class="post-info">
-                  <li><a href="#">${userResp.data.first_name}  ${userResp.data.last_name}</a></li>
-                  <li><a href="#">${obj.created_at}</a></li>
-                  <li><a href="#">${comments} Comments</a></li>
-                </ul>
-                <p>${content}</p>
-                <div class="post-options">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <ul class="post-tags">
-                        <li><i class="fa fa-tags"></i></li>
-                        <li><a href="#">Best Templates</a>,</li>
-                        <li><a href="#">TemplateMo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>`;
+          var colPostDiv = create("div");
+          colPostDiv.className = "col-lg-6";
+          var blogDiv = create("div");
+          blogDiv.className = "blog-post";
+          var blogThumb = create("div");
+          blogThumb.className = "blog-thumb";
+          var img = create("img");
+          img.src = "{{asset('binary/assets/images/blog-thumb-01.jpg')}}";
+          var downContentDiv = create("div");
+          downContentDiv.className = "down-content";
+          var span = create("span");
+          var a = create("a");
+          a.href = "post-details";
+          a.id = `post${obj.id}`;
+          var h4 = create("h4");
+          h4.innerHTML = obj.title;
+          var ul = create("ul");
+          var liFullName = create("li");
+          var liCreatedAt = create("li");
+          var liNumberOfComments = create("li");
+          var aFullName = create("a");
+          var aDate = create("a");
+          var aNumberOfComments = create("a");
+          aFullName.innerHTML = `${userResp.data.first_name}  ${userResp.data.last_name}`;
+          aDate.innerHTML = obj.created_at;
+          aNumberOfComments.innerHTML = `${commentCount} comments`;
+          var p = create("p");
+          p.innerHTML = content;
+          var postOptionsDiv = create("div");
+          postOptionsDiv.className = "post-options";
+          var rowDiv = create("div");
+          rowDiv.className = "row";
+          var colDiv = create("div");
+          colDiv.className = "col-lg-12";
+          var postTagsUl = create("ul");
+          postTagsUl.className = "post-tags";
+          var liFaTag = create("li");
+          var liConst = create("li");
+          var liConst2 = create("li");
+          var iFa = create("i");
+          iFa.className = "fa fa-tags"; 
+          var aBestTemplate = create("a");
+          var aTemplate = create("a");
+          aBestTemplate.innerHTML = "Best Templates";
+          aTemplate.innerHTML = "TemplateMo";
+          span.innerHTML = "Lifestyle";
+          blogThumb.appendChild(img);
+          blogDiv.appendChild(blogThumb);
+          colDiv.appendChild(blogDiv);
+          a.appendChild(h4);
+          colPostDiv.appendChild(blogDiv);
+          downContentDiv.appendChild(span);
+          downContentDiv.appendChild(a);
+          liFullName.appendChild(aFullName);
+          liCreatedAt.appendChild(aDate);
+          liNumberOfComments.appendChild(aNumberOfComments);
+          ul.appendChild(liFullName);
+          ul.appendChild(liCreatedAt);
+          ul.appendChild(liNumberOfComments);
+          downContentDiv.appendChild(ul);
+          downContentDiv.appendChild(p);
+          downContentDiv.appendChild(postOptionsDiv);
+          postOptionsDiv.appendChild(rowDiv);
+          rowDiv.appendChild(colDiv);
+          liFaTag.appendChild(iFa);
+          liConst.appendChild(aBestTemplate);
+          liConst2.appendChild(aTemplate);
+          postTagsUl.appendChild(liFaTag);
+          postTagsUl.appendChild(liConst);
+          postTagsUl.appendChild(liConst2);
+          colDiv.appendChild(postTagsUl);
+          blogDiv.appendChild(downContentDiv);
+          postDiv.appendChild(colPostDiv);
+          // postDiv.innerHTML += 
+          //   `          
+          // <div class="col-lg-6">
+          //           <div class="blog-post" id="">
+          //             <div class="blog-thumb">
+          //               <img src="{{asset('binary/assets/images/blog-thumb-01.jpg')}}" alt="">
+          //             </div>
+          //   <div class="down-content">
+          //       <span>Lifestyle</span>
+          //       <a href="post-details" id=post${obj.id}><h4>${obj.title}</h4></a>
+          //       <ul class="post-info">
+          //         <li><a href="#">${userResp.data.first_name}  ${userResp.data.last_name}</a></li>
+          //         <li><a href="#">${obj.created_at}</a></li>
+          //         <li><a href="#">${commentCount} Comments</a></li>
+          //       </ul>
+          //       <p>${content}</p>
+          //       <div class="post-options">
+          //         <div class="row">
+          //           <div class="col-lg-12">
+          //             <ul class="post-tags">
+          //               <li><i class="fa fa-tags"></i></li>
+          //               <li><a href="#">Best Templates</a>,</li>
+          //               <li><a href="#">TemplateMo</a></li>
+          //             </ul>
+          //           </div>
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // </div>`;
         }
            
               postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;

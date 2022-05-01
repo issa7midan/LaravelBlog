@@ -88,6 +88,7 @@ Route::get('/blogPosts/{id}','PostController@postByPageNum');
 
 Route ::post('/writecomment', 'CommentController@create');
 
+Route::get('/commentsCount', 'CommentController@commentsCount');
 
 Route::get('/token',function()
 {
