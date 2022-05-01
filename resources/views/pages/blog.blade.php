@@ -213,10 +213,10 @@ https://templatemo.com/tm-551-stand-blog
           // var userResp = user.userById(obj.user_id);
           var content = '';
           
-            if (obj.id == comments.data[i].post_id)
-              commentCount = comments.data[i].comments;
-            else
-              commentCount = 0;  
+          if (obj.id == comments.data[i].post_id)
+            commentCount = comments.data[i].comments;
+          else
+            commentCount = 0;  
           
           if(obj.content.length > 100)
             content = obj.content.substr(0,99) + "...";
@@ -295,81 +295,113 @@ https://templatemo.com/tm-551-stand-blog
           colDiv.appendChild(postTagsUl);
           blogDiv.appendChild(downContentDiv);
           postDiv.appendChild(colPostDiv);
-          // postDiv.innerHTML += 
-          //   `          
-          // <div class="col-lg-6">
-          //           <div class="blog-post" id="">
-          //             <div class="blog-thumb">
-          //               <img src="{{asset('binary/assets/images/blog-thumb-01.jpg')}}" alt="">
-          //             </div>
-          //   <div class="down-content">
-          //       <span>Lifestyle</span>
-          //       <a href="post-details" id=post${obj.id}><h4>${obj.title}</h4></a>
-          //       <ul class="post-info">
-          //         <li><a href="#">${userResp.data.first_name}  ${userResp.data.last_name}</a></li>
-          //         <li><a href="#">${obj.created_at}</a></li>
-          //         <li><a href="#">${commentCount} Comments</a></li>
-          //       </ul>
-          //       <p>${content}</p>
-          //       <div class="post-options">
-          //         <div class="row">
-          //           <div class="col-lg-12">
-          //             <ul class="post-tags">
-          //               <li><i class="fa fa-tags"></i></li>
-          //               <li><a href="#">Best Templates</a>,</li>
-          //               <li><a href="#">TemplateMo</a></li>
-          //             </ul>
-          //           </div>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </div>`;
         }
-           
-              postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
-              pageNumberDiv = document.getElementById("pageNumber");
-              pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
-              ulPageNumber = document.getElementById("ulPageNumber"); 
+        var pageNumberDiv = create("div");
+        pageNumberDiv.className = "col-lg-12";
+        pageNumberDiv.id = "pageNumber";
+        var ulPageNumbers = create("ul");
+        ulPageNumbers.className = "page-numbers";
+        ulPageNumbers.id = ulPageNumbers;
+        var liFirst = create("li");
+        var liPrevious = create("li");
+        var aFirst = create("a");
+        aFirst.href = "/blog/1";
+        var iFirst = create("i");
+        iFirst.className = "fa fa-angle-double-left";
+        liPrevious.id = "previous";
+        var aPrevious = create("a");
+        aPrevious.href = `/blog/${pageNum-1}`;
+        var iPrevious = create("i");
+        iPrevious.className = "fa fa-angle-left";
+        postDiv.appendChild(pageNumberDiv);
+        pageNumberDiv.appendChild(ulPageNumbers);
+        ulPageNumbers.appendChild(liFirst);
+        liFirst.id = "first";
+        liFirst.appendChild(aFirst);
+        aFirst.appendChild(iFirst);
+        ulPageNumbers.appendChild(liPrevious);
+        liPrevious.appendChild(aPrevious);
+        aPrevious.appendChild(iPrevious);
+              // postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
+              // pageNumberDiv = document.getElementById("pageNumber");
+              // pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
+              // ulPageNumber = document.getElementById("ulPageNumber"); 
+              // ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
+              // ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
 
-          
-              ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
-              ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
-              if (pageNum == 1) {
-                elementsViews.hideElement("first");
-                elementsViews.hideElement("previous");
-              }
-              var cieler = Number(pageNum);
-            //&& (Number(pageNum)+i) <= Math.ceil(posts_count.data.length/6)
-              // for (i=0; i< Math.ceil(posts_count.data.length/6); i++){
-                
-                if (cieler + 5 > pageCount){
-                  for (i=0; i< 5 ; i++){ 
-                    if ((pageCount-4)+i == Number(pageNum)){
-                      ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${(pageCount-4)+1}">${(pageCount-4)+i}</a></li>`;
-                    }
-                     else {
-                         ulPageNumber.innerHTML += `<li><a href="/blog/${(pageCount-4)+i}">${(pageCount-4)+i}</a></li>`;
-                    }
-              }
-          }else {
-              for (i=0; i< 5 ; i++){ 
-                if (Number(pageNum) == Number(pageNum)+i){
-                    ulPageNumber.innerHTML += `<li class="active"><a href="/blog/${Number(pageNum)}">${Number(pageNum)+i}</a></li>`;
-                }
-                else {
-                    ulPageNumber.innerHTML += `
-                    <li><a href="/blog/${Number(pageNum)+i}">${Number(pageNum)+i}</a></li>`;
-                }
+        var cieler = Number(pageNum);
+        if (cieler + 5 > pageCount) {
+          for (i=0; i< 5 ; i++){ 
+            if ((pageCount-4)+i == Number(pageNum)) {
+              var aActive = create ("a");
+              aActive.href = `/blog/${(pageCount-4)+1}`;
+              aActive.innerHTML = (pageCount-4)+i;
+              liActive = create("li");
+              liActive.className = "active";
+              liActive.appendChild(aActive);
+              ulPageNumbers.appendChild(liActive);
             }
-              ulPageNumber.innerHTML += `<li id ="next"><a href="/blog/${Number(pageNum)+1}"><i class="fa fa-angle-right"></i></a></li>`;
-              ulPageNumber.innerHTML += `<li id ="last"><a href="/blog/${pageCount}"><i class="fa fa-angle-double-right"></i></a></li>`;
-              if (pageNum == Math.ceil(posts_count.data.length/6)){
-                elementsViews.hideElement("next");
-                elementsViews.hideElement("last");
+            else{
+              var aActive = create ("a");
+              aActive.href = `/blog/${(pageCount-4)+1}`;
+              aActive.innerHTML = (pageCount-4)+i;
+              liNotActive = create("li");
+              liNotActive.appendChild(aActive);
+              ulPageNumbers.appendChild(liNotActive); 
+            }  
+          }
+        }
+        else {
+          for (i=0; i< 5 ; i++){ 
+             if (Number(pageNum) == Number(pageNum)+i){
+              var aActive = create ("a");
+              aActive.href = `/blog/${Number(pageNum)+i}`;
+              aActive.innerHTML = Number(pageNum)+i;
+              liActive = create("li");
+              liActive.className = "active";
+              liActive.appendChild(aActive);
+              ulPageNumbers.appendChild(liActive);
               }
-              if (pageNum <=0)
-                window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
+              else {
+                var aActive = create ("a");
+                aActive.href = `/blog/${Number(pageNum)+i}`;
+                aActive.innerHTML = Number(pageNum)+i;
+                liNotActive = create("li");
+                liNotActive.appendChild(aActive);
+                ulPageNumbers.appendChild(liNotActive); 
+              }
+          }
+          var liNext = create("li");
+          var liLast = create("li");
+          liNext.id =  "next";
+          liLast.id =  "last";
+          var aNext = create("a");
+          var aLast = create("a");
+          aNext.href = `/blog/${Number(pageNum)+1}`;
+          aLast.href = `/blog/${pageCount}`;
+          var iNext = create("i");
+          var iLast = create("i");
+          iNext.className =  "fa fa-angle-right";
+          iLast.className = "fa fa-angle-double-right"; 
+          aNext.appendChild(iNext);
+          aLast.appendChild(iLast);
+          liNext.appendChild(aNext);
+          liLast.appendChild(aLast);
+          ulPageNumbers.appendChild(liNext);
+          ulPageNumbers.appendChild(liLast);
+          // ulPageNumber.innerHTML += `<li id ="next"><a href="/blog/${Number(pageNum)+1}"><i class="fa fa-angle-right"></i></a></li>`;
+          // ulPageNumber.innerHTML += `<li id ="last"><a href="/blog/${pageCount}"><i class="fa fa-angle-double-right"></i></a></li>`;
+          if (pageNum == Math.ceil(posts_count.data.length/6)){
+            elementsViews.hideElement("next");
+            elementsViews.hideElement("last");
+          }
+          
+        if (pageNum == 1) {
+          elementsViews.hideElement("first");
+          elementsViews.hideElement("previous");
+        }
+          if (pageNum <=0)
+            window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
     }
   }
 //                    <li class="active"><a href="#">2</a></li>
