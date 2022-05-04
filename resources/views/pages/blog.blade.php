@@ -329,8 +329,8 @@ https://templatemo.com/tm-551-stand-blog
         for (i=0; i<5; i++)
         {
           if (Number(pageNum) >= 3 && Number(pageNum) < ceil -2){
-          if (i < 3)
-          {
+            if (i < 3)
+            {
               var aActive = create ("a");
               aActive.href = `/blog/${pagesNum[i]}`; 
               aActive.innerHTML = pagesNum[i];
