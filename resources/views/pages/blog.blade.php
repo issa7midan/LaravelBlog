@@ -322,55 +322,67 @@ https://templatemo.com/tm-551-stand-blog
         ulPageNumbers.appendChild(liPrevious);
         liPrevious.appendChild(aPrevious);
         aPrevious.appendChild(iPrevious);
-              // postDiv.innerHTML += `<div class="col-lg-12" id="pageNumber">`;
-              // pageNumberDiv = document.getElementById("pageNumber");
-              // pageNumberDiv.innerHTML += `<ul class="page-numbers" id="ulPageNumber">`;
-              // ulPageNumber = document.getElementById("ulPageNumber"); 
-              // ulPageNumber.innerHTML += `<li id="first"><a href="/blog/1"><i class="fa fa-angle-double-left"></i></a></li>`;
-              // ulPageNumber.innerHTML += `<li id="previous"><a href="/blog/${pageNum-1}"><i class="fa fa-angle-left"></i></a></li>`;
 
-        var cieler = Number(pageNum);
-        if (cieler + 5 > pageCount) {
-          for (i=0; i< 5 ; i++){ 
-            if ((pageCount-4)+i == Number(pageNum)) {
+        var ceil = Math.ceil(posts_count.data.length/6);
+        pagesNum = fillAraay(Number(pageNum),ceil);
+        console.log(pagesNum);
+        for (i=0; i<5; i++)
+        {
+          if (Number(pageNum) >= 3 && Number(pageNum) < ceil -2){
+          if (i < 3)
+          {
               var aActive = create ("a");
-              aActive.href = `/blog/${(pageCount-4)+1}`;
-              aActive.innerHTML = (pageCount-4)+i;
+              aActive.href = `/blog/${pagesNum[i]}`; 
+              aActive.innerHTML = pagesNum[i];
+              liActive = create("li");
+              liActive.appendChild(aActive);
+              ulPageNumbers.appendChild(liActive);
+          }
+          else if (i  == 3)
+          {
+            var aActive = create ("a");
+            liActive.className = "active";
+            aActive.innerHTML = pagesNum[i] ;
+            aActive.href = `/blog/${pagesNum[i]}`;
+            liActive = create("li");
+            liActive.appendChild(aActive);
+            ulPageNumbers.appendChild(liActive);
+          }
+          else 
+          {
+            var aActive = create ("a");
+            aActive.href = `/blog/${pagesNum[i]}`;
+            aActive.innerHTML = pagesNum[i];
+            liActive = create("li");
+            liActive.appendChild(aActive);
+            ulPageNumbers.appendChild(liActive);
+          }
+      }
+    
+    else 
+    {
+      if ( Number(pageNum) == pagesNum[i])
+          {
+              var aActive = create ("a");
+              aActive.href = `/blog/${pagesNum[i]}`; 
+              aActive.innerHTML = pagesNum[i];
               liActive = create("li");
               liActive.className = "active";
               liActive.appendChild(aActive);
               ulPageNumbers.appendChild(liActive);
-            }
-            else{
-              var aActive = create ("a");
-              aActive.href = `/blog/${(pageCount-4)+1}`;
-              aActive.innerHTML = (pageCount-4)+i;
-              liNotActive = create("li");
-              liNotActive.appendChild(aActive);
-              ulPageNumbers.appendChild(liNotActive); 
-            }  
           }
-        }
-        else {
-          for (i=0; i< 5 ; i++){ 
-             if (Number(pageNum) == Number(pageNum)+i){
-              var aActive = create ("a");
-              aActive.href = `/blog/${Number(pageNum)+i}`;
-              aActive.innerHTML = Number(pageNum)+i;
-              liActive = create("li");
-              liActive.className = "active";
-              liActive.appendChild(aActive);
-              ulPageNumbers.appendChild(liActive);
-              }
-              else {
-                var aActive = create ("a");
-                aActive.href = `/blog/${Number(pageNum)+i}`;
-                aActive.innerHTML = Number(pageNum)+i;
-                liNotActive = create("li");
-                liNotActive.appendChild(aActive);
-                ulPageNumbers.appendChild(liNotActive); 
-              }
+          else 
+          {
+            var aActive = create ("a");
+            aActive.innerHTML = pagesNum[i] ;
+            aActive.href = `/blog/${pagesNum[i]}`;
+            liActive = create("li");
+            liActive.appendChild(aActive);
+            ulPageNumbers.appendChild(liActive);
           }
+    }
+  }
+
           var liNext = create("li");
           var liLast = create("li");
           liNext.id =  "next";
@@ -403,8 +415,27 @@ https://templatemo.com/tm-551-stand-blog
           if (pageNum <=0)
             window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
     }
-  }
-//                    <li class="active"><a href="#">2</a></li>
+    function fillAraay(pageNum, ceil)
+    {
+      arr =[];
+      for (i = 0; i < 5;i++)
+      {
+        if(pageNum <= 3)
+        {
+          arr[i] = i +1 ;
+        }
+        else if (pageNum+2 >= ceil )
+        {
+          arr[i] = ceil - 5 + i + 1;
+        }
+        else 
+        {
+          arr[i] = pageNum - 2 + i ; 
+        }
+      }
+      return arr;
+    }
+
     </script>
 
     <script language = "text/Javascript"> 
