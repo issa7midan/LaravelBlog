@@ -234,7 +234,7 @@ https://templatemo.com/tm-551-stand-blog
           downContentDiv.className = "down-content";
           var span = create("span");
           var a = create("a");
-          a.href = `post-details/${obj.id}`;
+          a.href = `/post-details/${obj.id}`;
           a.id = `post${obj.id}`;
           var h4 = create("h4");
           h4.innerHTML = obj.title;
