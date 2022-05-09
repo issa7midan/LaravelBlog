@@ -265,22 +265,24 @@ https://templatemo.com/tm-551-stand-blog
 
     <script>
       var postDetails = new PostDetails();
-      getPost();
+      var postId = window.location.pathname.split('/').pop();
+      getPost(postId);
 
-      function getPost(id = 6) {
+      function getPost(id) {
         var obj = postDetails.getPost(id);
         var postTitle = get("postTitle");
         var postDate = get("postDate");
         var postContent = get("postContent");
         postTitle.innerHTML = obj.title;
-        postDate.inn  erHTML = obj.created_at;
+        postDate.innerHTML = obj.created_at;
         postContent.innerHTML = obj.content;
-        getComment();
+        getComment(id);
       }
 
-      function getComment(id = 6) {
+      function getComment(id) {
         var langObj = getLangObject();
         var obj = postDetails.getComment(id);
+        //alert(obj);
         var numberOfComments = get("numberOfComments");
         var numberOfComments2 = get("numberOfComment2");
         if (obj != null) {

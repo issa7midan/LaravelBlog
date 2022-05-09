@@ -35,7 +35,7 @@ Route::get('/blog/{id}',function(){
 
 });
 
-Route::get('/post-details',function(){
+Route::get('/post-details/{id}',function(){
     return view('pages.post-details');
 });
 
