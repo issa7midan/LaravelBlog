@@ -32,6 +32,28 @@
                 }
             }
         }
+        const authedUser = new User();
+        var lang = getLangObject();
+        if (user.isAuthenticated())
+        {
+
+            
+            var btnAuth = get("btnAuth");
+          
+            // btnAuth.innerHtml = lang.menu_item_logout;
+            btnAuth.innerHTML = lang.menu_item_logout;
+            btnAuth.href = '/logout';
+            // btnAuth.strRes = "menu_item_login";
+            // alert(btnAuth.innerHTML);
+
+        }
+        else
+        {
+            var btnAuth = get("btnAuth");
+            // btnAuth.innerHtml = lang.menu_item_login;
+            btnAuth.innerHTML = lang.menu_item_login;
+            btnAuth.href = '/login';
+        }
         // const urlParams = new URLSearchParams(queryString);
         // const lang = urlParams.get('lang');
         //console.log(lang);

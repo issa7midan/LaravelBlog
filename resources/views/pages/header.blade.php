@@ -35,7 +35,7 @@
                 <a class="nav-link" href="/contact" StrRes="menu_item_contact_us">Contact Us</a>
               </li>
             <li class="nav-item">
-            <a class="nav-link" href="/login" StrRes="menu_item_login">Login</a>
+            <a class="nav-link" id="btnAuth" href="/login" >Login</a>
           </li>
             </ul>
           </div>
