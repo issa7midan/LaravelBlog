@@ -53,7 +53,7 @@ https://templatemo.com/tm-551-stand-blog
     @include('pages/header')
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    <div class="main-banner header-text">
+    <div class="main-banner header-text" id = "mainDiv">
       <div class="container-fluid">
         <div class="owl-banner owl-carousel">
           <div class="item">
@@ -375,23 +375,181 @@ https://templatemo.com/tm-551-stand-blog
     </section>
     @include('pages/includes')
     @include('pages/footer')
-
+    
 
 
 
     <script>
-      
-      // const queryString = window.location.search;
-      // //console.log(queryString);
-      // const urlParams = new URLSearchParams(queryString);
-      // const lang = urlParams.get('lang');
-      // //console.log(lang);
-      // setLocale(lang);
-    //  sendRequest("GET", "token").then(function (response));
-        const lol = new Comment();
-        lol.deleteComment();
-        
+      displayBannerPosts();
+      function displayBannerPosts() {
+          var mainBannerDiv = get("mainDiv");
+          mainBannerDiv.innerHTML = "";
+          var contanerFluidDiv = create("div");
+          contanerFluidDiv.className = "container-fluid";
+          var owlBannerDiv = create("div");
+          owlBannerDiv.className = "owl-banner owl-carousel";
+          mainBannerDiv.appendChild(contanerFluidDiv);
+          contanerFluidDiv.appendChild(owlBannerDiv);
+          const Post = new Posts();
+          const commentsResp = new Comment();
+          comments = commentsResp.getCommentCount();
+          response = Post.getPostsByWinLocation(1);
+          // mainBannerDiv.className = "main-banner header-text";
+          for (i = 0; i <6; i++)
+          {
+            var obj = response.data[i];
+            if (obj.id == comments.data[i].post_id)
+              commentCount = comments.data[i].comments;
+            else
+              commentCount = 0;  
+            var itemDiv = create("div");
+            itemDiv.className = "item";
+            var imgSrc = create("img");
+            imgSrc.src = "{{asset('binary/assets/images/banner-item-01.jpg')}}";
+            var itemContentDiv = create("div");
+            itemContentDiv.className = "item-content";
+            var mainContentDiv = create("div");
+            mainContentDiv.className = "main-content";
+            var metaDiv = create("div");
+            metaDiv.className = "meta-category";
+            var span = create ("span");
+            span.innerHTML = obj.title;
+            var postDetailsA = create("a");
+            postDetailsA.href = `/post-details/${obj.id}`;
+            var h4 = create("h4");
+            h4.innerHTML = obj.title;
+            var postUl = create("ul");
+            var nameLi = create("li");
+            var nameA = create("a");
+            nameA.innerHTML = `${obj.first_name} ${obj.last_name}`;
+            var dateLi = create("li");
+            var dateA = create("a");
+            dateA.innerHTML = obj.created_at;
+            var numOfCommentsLi = create("li");
+            var numOfCommentsA = create("a");
+            numOfCommentsA.innerHTML = commentCount;
+            itemDiv.appendChild(imgSrc);
+            itemDiv.appendChild(itemContentDiv);
+            itemContentDiv.appendChild(mainContentDiv);
+            mainContentDiv.appendChild(metaDiv);
+            metaDiv.appendChild(span);
+            mainContentDiv.appendChild(postDetailsA);
+            postDetailsA.appendChild(h4);
+            mainContentDiv.appendChild(postUl);
+            postUl.appendChild(nameLi);
+            nameLi.appendChild(nameA);
+            postUl.appendChild(dateLi);
+            dateLi.appendChild(dateA);
+            postUl.appendChild(numOfCommentsLi);
+            numOfCommentsLi.appendChild(numOfCommentsA);
+            owlBannerDiv.appendChild(itemDiv);
+        }
+      }
 
+      /*
+          <div class="main-banner header-text">
+      <div class="container-fluid">
+        <div class="owl-banner owl-carousel">
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-01.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Fashion</span>
+                </div>
+                <a href="post-details"><h4>Morbi dapibus condimentum</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 12, 2020</a></li>
+                  <li><a href="#">12 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-02.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Nature</span>
+                </div>
+                <a href="post-details"><h4>Donec porttitor augue at velit</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 14, 2020</a></li>
+                  <li><a href="#">24 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-03.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Lifestyle</span>
+                </div>
+                <a href="/post-details"><h4>Best HTML Templates on TemplateMo</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 16, 2020</a></li>
+                  <li><a href="#">36 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-04.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Fashion</span>
+                </div>
+                <a href="/post-details"><h4>Responsive and Mobile Ready Layouts</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 18, 2020</a></li>
+                  <li><a href="#">48 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-05.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Nature</span>
+                </div>
+                <a href="/post-details"><h4>Cras congue sed augue id ullamcorper</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 24, 2020</a></li>
+                  <li><a href="#">64 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset('binary/assets/images/banner-item-06.jpg') }}" alt="">
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Lifestyle</span>
+                </div>
+                <a href="/post-details"><h4>Suspendisse nec aliquet ligula</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 26, 2020</a></li>
+                  <li><a href="#">72 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      */
     </script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
@@ -406,4 +564,4 @@ https://templatemo.com/tm-551-stand-blog
     
 
   </body>
-</html>
+</html>|
