@@ -19,6 +19,8 @@ class ReviewController extends Controller
     {
         if (auth()->user() !== null )
             Review::whereID($id)->delete();
+        else
+            return Filter::customizedResponse('Unauthorized',403);
     }
 
     public function viewAll()

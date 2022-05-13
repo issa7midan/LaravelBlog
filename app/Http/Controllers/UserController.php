@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Filter;
 class UserController extends Controller
 {
     /**
@@ -95,6 +96,10 @@ class UserController extends Controller
             $user = User::findOrFail($request->id);
             $user->update($request->all());
         }
+        else 
+        {
+           return Filter::customizedResponse('Unauthorized',403);
+        }
     }
 
     /**
@@ -107,5 +112,12 @@ class UserController extends Controller
     {
         if (auth()->user() !== null )
             $user = User::whereId($id)->delete();
+        else
+            return Filter::customizedResponse('Unauthorized',403);
+    }
+    public function userById ($id)
+    {
+        $user = User::findOrFail($id);
+        return Filter::customizedResponse($user,200);
     }
 }

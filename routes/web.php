@@ -30,11 +30,12 @@ Route::get('/index',function(){
     return view('index');
 });
 
-Route::get('/blog',function(){
+Route::get('/blog/{id}',function(){
     return view('pages.blog');
+
 });
 
-Route::get('/post-details',function(){
+Route::get('/post-details/{id}',function(){
     return view('pages.post-details');
 });
 
@@ -42,7 +43,9 @@ Route::get('/contact',function(){
     return view('pages.contact');
 });
 
-
+Route::get('/blog',function(){
+    return redirect('/blog/1');
+});
 
 // *********** LOGIN ROUTES ***********
 Route::get('/login', function(){
@@ -66,7 +69,7 @@ Route::get('/authuser','AuthController@authUser');
 
 Route::get('/logout', 'AuthController@logout');
 
-
+Route::get('/user/userById/{id}','UserController@userById');
 //************ POST ROUTES **************
 Route::post('/writepost', 'PostController@store');
 
@@ -78,11 +81,14 @@ Route::post('/updatepost', 'PostController@update');
 
 Route::delete('/deletepost', 'PostController@destroy');
 
+Route::get('/allposts', 'PostController@allPosts');
 
+Route::get('/blogPosts/{id}','PostController@postByPageNum');
 //******************* COMMENTS ********************
 
 Route ::post('/writecomment', 'CommentController@create');
 
+Route::get('/commentsCount', 'CommentController@commentsCount');
 
 Route::get('/token',function()
 {
@@ -96,6 +102,11 @@ Route::post('/users/update','UserController@update');
 
 Route::get('/comment/{id}','CommentController@getCommentByPostID');
 
+Route::get('/post/{id}','PostController@getPostById');
+
+
+
+//***************************** LOCALIZER **************** */
 Route::get('/en.json', function(){
     $path = resource_path("lang/en.json");
     $json = file_get_contents($path);

@@ -35,7 +35,7 @@ https://templatemo.com/tm-551-stand-blog
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    @include('header')
+    @include('pages/header')
     <section class="contact-us">
       <center>
         <div class="container">
@@ -77,20 +77,9 @@ https://templatemo.com/tm-551-stand-blog
       </center>
       
     </section>
-    @include('footer')
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('binary/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Additional Scripts -->
-    <script src="{{ asset('binary/assets/js/custom.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/owl.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/login.js')}}"></script>
+    @include('pages/includes')
+    @include('pages/footer')
+    
     <script>
       const textEntities = new Views();
       $(document).ready(textEntities.viewPoint);

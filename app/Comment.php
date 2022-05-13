@@ -9,7 +9,7 @@ class Comment extends Model
     //
     protected $casts = ["first_name"=>"string", "last_name"=>"string", "email"=>"string", "comment"=>"string", "status"=>"integer"];
     protected $table = 'comments';
-    protected $fillable = ['first_name', 'last_name', 'email', 'comment',];
+    protected $fillable = ['first_name', 'last_name', 'email', 'comment', 'post_id'];
 
     public function post()
     {

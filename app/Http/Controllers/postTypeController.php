@@ -16,6 +16,9 @@ class postTypeController extends Controller
     public function destroy(Request $request){
         if (auth()->user() !== null )
             $postType = PostType::whereId($request->id)->delete();
+        else
+            return Filter::customizedResponse('Unauthorized',403); 
+
     }
     public function allTypes(){
         $postType = PostType::all();

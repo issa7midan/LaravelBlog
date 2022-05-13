@@ -41,7 +41,7 @@ https://templatemo.com/tm-551-stand-blog
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    @include('header')
+    @include('pages/header')
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -146,20 +146,10 @@ https://templatemo.com/tm-551-stand-blog
       </div>
     </section>
 
+    @include('pages/includes')
+    @include('pages/footer')
+
     
-    @include('footer')
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('binary/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Additional Scripts -->
-    <script src="{{ asset('binary/assets/js/custom.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/owl.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the

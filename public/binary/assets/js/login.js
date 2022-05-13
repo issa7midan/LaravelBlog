@@ -13,6 +13,7 @@ function login(email, password)
   header ={"X-CSRF-TOKEN":token};  
  sendRequest("POST", 'user/login', body,header); 
 }
+
 class Views{
  constructor(){
   function viewPoint() {
@@ -33,8 +34,10 @@ class Views{
         element.style.width = "50%";
       });
     }
-    module.exports = {viewPoint,}   
    }
   }
+  hideElement(id)
+  {
+    document.getElementById(id).style.display = "none" ;
+  }
 }
-

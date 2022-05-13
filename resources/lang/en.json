@@ -1,9 +1,18 @@
 {
-    "app_title": "jordan log",
+    "app_title": "Jordanian Black Iris",
     "menu_item_home": "Home",
     "menu_item_about_us": "About Us",
     "menu_item_blog_entries": "Blog Entries",
     "menu_item_post_details": "Post Details",
     "menu_item_contact_us": "Contact Us",
-    "menu_item_login": "login"
+    "menu_item_login": "login",
+    "menu_item_logout": "logout",
+    "blog_page_recent_posts": "Recent Posts",
+    "copyrights": "Copyright © 2022 Puzzles IT Solutions | Design:",
+    "company_name": "Puzzles IT Solutions",
+    "comments": "Comments",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "type_your_comment": "Type your comment"
 }

@@ -1,58 +1,61 @@
 class Posts {
-    constructor() {
-
-
-        function updatePost() {
-            const { loggedInUser } = require('./user.js');
-            module.exports = { updatePost, }
-        }
-        function createPost() {
-            const { loggedInUser } = require('./user.js');
-            module.exports = { createPost, }
-        }
-        function deletePost() {
-            module.exports = { deletePost, }
-        }
-    }
-
-
-
     updatePost(title, content) {
-        var token = sendRequest("GET", 'token');
         const users = new User();
-        const user = users.loggedInUser();
-        const user_id = user[0].id;
-        var body = {
-            "title": $("#title").val(),
-            "content": $("#content").val(),
-            "user_id": user_id,
-            "postTypeID": 1,
-        };
-        header = { "X-CSRF-TOKEN": token };
-        sendRequest("POST", 'updatepost', body, header);
+        if (users.isAuthenticated()) {
+            var token = sendRequest("GET", 'token');
+            const user = users.loggedInUser();
+            const user_id = user.data[0].id;
+            
+            var body = {
+                "title": $("#title").val(),
+                "content": $("#content").val(),
+                "user_id": user_id,
+                "postTypeID": 1,
+            };
+            header = { "X-CSRF-TOKEN": token };
+            sendRequest("POST", 'updatepost', body, header);
+        }
     }
     createPost(title, content) {
-        var token = sendRequest("GET", 'token');
+
         const users = new User();
-        const user = users.loggedInUser();
-        const user_id = user[0].id;
-        var body = {
-            "title": $("#title").val(),
-            "content": $("#content").val(),
-            "user_id": user_id,
-            "postTypeID": 1,
-        };
-        const header = { "X-CSRF-TOKEN": token };
-        sendRequest("POST", 'writepost', body, header);
+        if (users.isAuthenticated()) {
+            var token = sendRequest("GET", 'token');
+            var user = users.loggedInUser();
+            var user_id = user.data[0].id
+            var body = {
+                "title": $("#title").val(),
+                "content": $("#content").val(),
+                "user_id": user_id,
+                "postTypeID": 1,
+            };
+            const header = { "X-CSRF-TOKEN": token };
+            sendRequest("POST", 'writepost', body, header);
+        }
 
     }
     deletePost(id) {
-        var token = sendRequest("GET", 'token');
-        header = { "X-CSRF-TOKEN": token };
-        var body = {
-            "id": id
-        };
-        sendRequest("POST", 'deletepost', body, header);
+        const users = new User();
+        if (users.isAuthenticated()) {
+            var token = sendRequest("GET", 'token');
+            header = { "X-CSRF-TOKEN": token };
+            var body = {
+                "id": id
+            };
+            sendRequest("POST", 'deletepost', body, header);
+        }
+    }
+    getAllPosts() {
+        var posts = sendRequest("GET", 'allposts');
+        posts = JSON.parse(posts);
+        return posts;
+    }
+
+    getPostsByWinLocation(id)
+    {
+        var posts = sendRequest("GET",`blogPosts/${id}`);
+        posts = JSON.parse(posts);
+        return posts;
     }
 
 

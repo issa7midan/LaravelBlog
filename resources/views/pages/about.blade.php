@@ -41,7 +41,7 @@ https://templatemo.com/tm-551-stand-blog
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    @include('header')
+    @include('pages/header')
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -135,19 +135,9 @@ https://templatemo.com/tm-551-stand-blog
     </section>
 
     
-    @include('footer')
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('binary/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('binary/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Additional Scripts -->
-    <script src="{{ asset('binary/assets/js/custom.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/owl.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/slick.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/isotope.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/accordions.js')}}"></script>
-    <script src="{{ asset('binary/assets/js/web.js')}}"></script>
+    
+    @include('pages/includes')
+    @include('pages/footer')
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
@@ -158,6 +148,13 @@ https://templatemo.com/tm-551-stand-blog
           }
       }
     </script>
+<script>
+      // const post = new Posts();
+      // var data = post.getAllPosts();
+      //  alert(data.data[0].content);
+      const user = new User();
+      alert(user.isAuthenticated());
 
+</script>
   </body>
 </html>
