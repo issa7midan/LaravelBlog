@@ -151,27 +151,27 @@ https://templatemo.com/tm-551-stand-blog
                         <div class="row">
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name">
+                              <input name="name" type="text" id="firstName" placeholder="First name">
                             </fieldset>
                           </div>
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email">
+                              <input name="name" type="text" id="lastName" placeholder="Last name">
                             </fieldset>
                           </div>
                           <div class="col-md-12 col-sm-12">
                             <fieldset>
-                              <input name="subject" type="text" id="subject" placeholder="Subject">
+                              <input name="email" type="text" id="email" placeholder="Email">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" ></textarea>
+                              <textarea name="message" rows="6" id="commentArea" placeholder="Type your comment" ></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button" StrRes="comments" onclick="alert(this.innerHTML);">Submit</button>
+                              <button type="submit" id="form-submit" class="main-button" StrRes="comments" onclick="writeComment();">Submit</button>
                             </fieldset>
                           </div>
                         </div>
@@ -264,6 +264,8 @@ https://templatemo.com/tm-551-stand-blog
     @include('pages/footer')
 
     <script>
+      var langObj = getLangObject();
+      loadPage();
       var postDetails = new PostDetails();
       var postId = window.location.pathname.split('/').pop();
       getPost(postId);
@@ -280,7 +282,7 @@ https://templatemo.com/tm-551-stand-blog
       }
 
       function getComment(id) {
-        var langObj = getLangObject();
+        //var langObj = getLangObject();
         var obj = postDetails.getComment(id);
         //alert(obj);
         var numberOfComments = get("numberOfComments");
@@ -325,6 +327,23 @@ https://templatemo.com/tm-551-stand-blog
         
       }
 
+      function writeComment() {
+        var comment = new Comment();
+        var firstName = get("firstName").value;
+        var lastName = get("lastName").value;
+        var email = get("email").value;
+        var commentArea = get("commentArea").value;
+        //alert(firstName.value);
+        comment.createComment(firstName, lastName, email, commentArea, postId);
+      }
+
+      function loadPage() {
+        //alert(get("commentArea").placeholder);
+        get("firstName").placeholder = langObj.first_name;
+        get("lastName").placeholder = langObj.last_name;
+        get("email").placeholder = langObj.email;
+        get("commentArea").placeholder = langObj.type_your_comment;
+      }
       
 
     </script>

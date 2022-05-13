@@ -5,14 +5,15 @@ class Comment {
         if (user.responseCode[0] != '200')
             console.log(1);
     }
-    createComment(first_name, last_name, email, post_id, review_id) {
+    createComment(first_name, last_name, email, comment, post_id = 0, review_id = 0) {
         var token = sendRequest("GET", 'token');
         var body = {
-            "first_name": $("#first_name").val(),
-            "last_name": $("#last_name").val(),
-            "email": $("#email").val(),
-            "post_id": $("#post_id").val(),
-            "review_id": $("#review_id").val()
+            "first_name": first_name,
+            "last_name": last_name,
+            "email": email,
+            "comment": comment,
+            "post_id": post_id,
+            "review_id": review_id
         };
         const header = { "X-CSRF-TOKEN": token };
         sendRequest("POST", 'writecomment', body, header);

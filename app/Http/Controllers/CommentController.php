@@ -12,14 +12,10 @@ class CommentController extends Controller
     //
     public function create(Request $request)
     {
-        if(auth()->user() !== null) {
-            $comment = array("first_name" => $request->first_name, "last_name" => $request->last_name, "email" => $request->email,
-            "comment" => $request->comment, "post_id" => $request->post_id);
-            Comment::create($comment);
-            return Filter::customizedResponse("Success",200);
-        }else {
-            return Filter::customizedResponse('Unauthorized',403);
-        }
+        $comment = array("first_name" => $request->first_name, "last_name" => $request->last_name, "email" => $request->email,
+        "comment" => $request->comment, "post_id" => $request->post_id);
+        Comment::create($comment);
+        return Filter::customizedResponse("Success",200);
         
     }
 
