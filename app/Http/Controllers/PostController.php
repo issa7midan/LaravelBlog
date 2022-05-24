@@ -12,10 +12,13 @@ class PostController extends Controller
     public function store (Request $request)
     {
         if (auth()->user() !== null ){
+            $thumbnail = trim($request->thumbnail);
+            $thumbnail =strtolower($thumbnail);
                 $post = array('postTypeID'        => $request->postTypeID, 
                              'user_id'            => $request->user_id,
                              'content'            => $request->content,
-                             'title'              => $request->title);
+                             'title'              => $request->title,
+                             'thumbnail'          => 'binary\assets\images\thumbnails\\'.$thumbnail);
                 Post::create($post);
                 return Filter::customizedResponse("Success",200);
         }

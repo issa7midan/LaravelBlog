@@ -405,7 +405,7 @@ https://templatemo.com/tm-551-stand-blog
             var itemDiv = create("div");
             itemDiv.className = "item";
             var imgSrc = create("img");
-            imgSrc.src = "{{asset('binary/assets/images/banner-item-01.jpg')}}";
+            imgSrc.src = `{{asset('${obj.thumbnail}')}}`;
             var itemContentDiv = create("div");
             itemContentDiv.className = "item-content";
             var mainContentDiv = create("div");
