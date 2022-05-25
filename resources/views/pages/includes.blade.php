@@ -16,6 +16,7 @@
     <script src="{{ asset('binary/assets/js/user.js') }}"></script>
     <script src="{{ asset('binary/assets/js/translate.js') }}"></script>
     <script src="{{ asset('binary/assets/js/post-details.js') }}"></script>
+    <script src="{{ asset('binary/assets/js/weather.js') }}"></script>
     <script>
         const pathName = window.location.pathname;
         var menuItems = document.getElementsByClassName("nav-item");

@@ -44,8 +44,8 @@ https://templatemo.com/tm-551-stand-blog
         </div>
     </div>  
     <!-- ***** Preloader End ***** -->
-
-    <!-- <include src="{{ (resource_path().('/views/pages/header.html')) }} "></include> -->
+    
+    <!-- <include src="{{ (resource_path().('/vipost-infoews/pages/header.html')) }} "></include> -->
     <!-- <include src="pages/header.html"></include> -->
     <!-- <header id="index_header">
     </header> -->
@@ -155,29 +155,112 @@ https://templatemo.com/tm-551-stand-blog
         </div>
       </div>
     </div>
-    <!-- Banner Ends Here -->
 
-    <section class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-8">
-                  <span>Stand Blog HTML5 Template</span>
-                  <h4>Creative HTML Template For Bloggers!</h4>
+    <!-- <div class="wheather-banner header-text" id = "mainDiv1">
+      <div class="container-fluid-wheather">
+        <div class="wheather-banner wheather-carousel">
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-01.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="wheather-meta-category">
+                  <span>Fashion</span>
                 </div>
-                <div class="col-lg-4">
-                  <div class="main-button">
-                    <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>
-                  </div>
+                <a href="post-details"><h4>Morbi dapibus condimentum</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 12, 2020</a></li>
+                  <li><a href="#">12 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-02.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Nature</span>
                 </div>
+                <a href="post-details"><h4>Donec porttitor augue at velit</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 14, 2020</a></li>
+                  <li><a href="#">24 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-03.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Lifestyle</span>
+                </div>
+                <a href="/post-details"><h4>Best HTML Templates on TemplateMo</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 16, 2020</a></li>
+                  <li><a href="#">36 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-04.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Fashion</span>
+                </div>
+                <a href="/post-details"><h4>Responsive and Mobile Ready Layouts</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 18, 2020</a></li>
+                  <li><a href="#">48 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-05.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Nature</span>
+                </div>
+                <a href="/post-details"><h4>Cras congue sed augue id ullamcorper</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 24, 2020</a></li>
+                  <li><a href="#">64 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wheather-item">
+            <img src="{{ asset('binary/assets/images/banner-item-06.jpg') }}" alt="">
+            <div class="wheather-item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>Lifestyle</span>
+                </div>
+                <a href="/post-details"><h4>Suspendisse nec aliquet ligula</h4></a>
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">May 26, 2020</a></li>
+                  <li><a href="#">72 Comments</a></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div> -->
+    <!-- Banner Ends Here -->
+    @include('pages/weather')
+    
 
 
     <section class="blog-posts">
@@ -380,28 +463,29 @@ https://templatemo.com/tm-551-stand-blog
 
 
     <script>
+      displayweather();
       displayBannerPosts();
+
       function displayBannerPosts() {
-          var mainBannerDiv = get("mainDiv");
-          mainBannerDiv.innerHTML = "";
-          var contanerFluidDiv = create("div");
-          contanerFluidDiv.className = "container-fluid";
-          var owlBannerDiv = create("div");
-          owlBannerDiv.className = "owl-banner owl-carousel";
-          mainBannerDiv.appendChild(contanerFluidDiv);
-          contanerFluidDiv.appendChild(owlBannerDiv);
-          const Post = new Posts();
-          const commentsResp = new Comment();
-          comments = commentsResp.getCommentCount();
-          response = Post.getPostsByWinLocation(1);
-          // mainBannerDiv.className = "main-banner header-text";
-          for (i = 0; i <6; i++)
-          {
+        var mainBannerDiv = get("mainDiv");
+        mainBannerDiv.innerHTML = "";
+        var contanerFluidDiv = create("div");
+        contanerFluidDiv.className = "container-fluid";
+        var owlBannerDiv = create("div");
+        owlBannerDiv.className = "owl-banner owl-carousel";
+        mainBannerDiv.appendChild(contanerFluidDiv);
+        contanerFluidDiv.appendChild(owlBannerDiv);
+        const Post = new Posts();
+        const commentsResp = new Comment();
+        comments = commentsResp.getCommentCount();
+        response = Post.getPostsByWinLocation(1);
+        // mainBannerDiv.className = "main-banner header-text";
+        for (i = 0; i < 6; i++) {
             var obj = response.data[i];
             if (obj.id == comments.data[i].post_id)
-              commentCount = comments.data[i].comments;
+                commentCount = comments.data[i].comments;
             else
-              commentCount = 0;  
+                commentCount = 0;
             var itemDiv = create("div");
             itemDiv.className = "item";
             var imgSrc = create("img");
@@ -412,7 +496,7 @@ https://templatemo.com/tm-551-stand-blog
             mainContentDiv.className = "main-content";
             var metaDiv = create("div");
             metaDiv.className = "meta-category";
-            var span = create ("span");
+            var span = create("span");
             span.innerHTML = obj.title;
             var postDetailsA = create("a");
             postDetailsA.href = `/post-details/${obj.id}`;
@@ -445,6 +529,58 @@ https://templatemo.com/tm-551-stand-blog
             owlBannerDiv.appendChild(itemDiv);
         }
       }
+      
+      
+      // <div class="container">
+      //   <div class="row">
+      //     <div class="col-lg-12">
+      //       <div class="main-content">
+      //         <div class="row">
+
+      //           <div class="col-lg-2">
+      //             <div class="card" style="width:150px; display:flex;align-items: center;justify-content: center;">
+      //               <img src="{{ asset('binary/assets/images/about-us.jpg')}}" alt="Avatar" style="width: 70px; height:70px; margin-top:10px">
+      //               <div class="container">
+      //                 <p>sunny</p>
+      //                 <p>Architect & Engineer</p> 
+      //               </div>
+      //             </div>
+      //           </div>
+                
+      //           <div class="col-lg-2" style="margin-top:10px">
+      //             <div class="card" style="width:150px; display:flex;align-items: center;justify-content: center;">
+      //               <img src="{{ asset('binary/assets/images/about-us.jpg')}}" alt="Avatar" style="width: 70px; height:70px; margin-top:10px">
+      //               <div class="container">
+      //                 <p>sunny</p>
+      //                 <p>Architect & Engineer</p> 
+      //               </div>
+      //             </div>
+      //           </div>
+                
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
+      // <div class="container">
+      //   <div class="row">
+      //     <div class="col-lg-12">
+      //       <div class="main-content">
+      //         <div class="row">
+      //           <div class="col-lg-8">
+      //             <span>Stand Blog HTML5 Template</span>
+      //             <h4>Creative HTML Template For Bloggers!</h4>
+      //           </div>
+      //           <div class="col-lg-4">
+      //             <div class="main-button">
+      //               <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>
+      //             </div>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
 
       /*
           <div class="main-banner header-text">
