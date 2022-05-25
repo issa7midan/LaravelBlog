@@ -229,7 +229,7 @@ https://templatemo.com/tm-551-stand-blog
           var blogThumb = create("div");
           blogThumb.className = "blog-thumb";
           var img = create("img");
-          img.src = "{{asset('binary/assets/images/blog-thumb-01.jpg')}}";
+          img.src = `{{asset('${obj.thumbnail}')}}`;
           var downContentDiv = create("div");
           downContentDiv.className = "down-content";
           var span = create("span");
