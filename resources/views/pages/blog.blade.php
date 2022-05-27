@@ -324,9 +324,8 @@ https://templatemo.com/tm-551-stand-blog
         aPrevious.appendChild(iPrevious);
 
         var ceil = Math.ceil(posts_count.data.length/6);
-        pagesNum = fillAraay(Number(pageNum),ceil);
-        console.log(pagesNum);
-        for (i=0; i<5; i++)
+        pagesNum = fillArray(Number(pageNum),ceil);
+        for (i=0; i<pagesNum.length; i++)
         {
           if (Number(pageNum) >= 3 && Number(pageNum) < ceil -2){
             if (i < 3)
@@ -415,9 +414,11 @@ https://templatemo.com/tm-551-stand-blog
           if (pageNum <=0)
             window.location.replace(Number(window.location.pathname.split('/').pop()*0)+1);
     }
-    function fillAraay(pageNum, ceil)
+    function fillArray(pageNum, ceil)
     {
       arr =[];
+      if (ceil > 5)
+      {
       for (i = 0; i < 5;i++)
       {
         if(pageNum <= 3)
@@ -433,6 +434,15 @@ https://templatemo.com/tm-551-stand-blog
           arr[i] = pageNum - 2 + i ; 
         }
       }
+    }
+    else {
+      for (i = 0; i < ceil;i++)
+      {
+          arr[i] = i +1 ;
+
+      }
+    }
+ 
       return arr;
     }
 
