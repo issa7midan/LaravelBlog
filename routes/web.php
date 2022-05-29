@@ -32,7 +32,6 @@ Route::get('/index',function(){
 
 Route::get('/blog/{id}',function(){
     return view('pages.blog');
-
 });
 
 Route::get('/post-details/{id}',function(){
@@ -54,17 +53,6 @@ Route::get('/login', function(){
 
 Route::post('/user/login','LoginController@login');
 
-Route::get('/currUser',function(){
-      if (auth()->user() !== null)
-      {
-          echo 'hello';
-      }
-      else
-      {
-          abort(403);
-      }
-});
-
 Route::get('/authuser','AuthController@authUser');
 
 Route::get('/logout', 'AuthController@logout');
@@ -76,7 +64,9 @@ Route::post('/writepost', 'PostController@store');
 Route::get('/post',function(){
     return view('pages.post');
 });
-
+Route::post('/newpost',function(){
+    return view ('pages.writepost');
+});
 Route::post('/updatepost', 'PostController@update');
 
 Route::delete('/deletepost', 'PostController@destroy');
