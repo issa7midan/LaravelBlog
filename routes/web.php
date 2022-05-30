@@ -110,3 +110,6 @@ Route::get('/de.json', function(){
     return $json;
     //return resource_path("public/binary/assets/lang/en.json");
 });
+
+//******************* PHOTOS ********************
+Route::post('/postimages','PhotoController@create');

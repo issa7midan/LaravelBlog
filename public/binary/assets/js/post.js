@@ -16,7 +16,7 @@ class Posts {
             sendRequest("POST", 'updatepost', body, header);
         }
     }
-    createPost(title, content) {
+    createPost(title, content,image) {
 
         const users = new User();
         if (users.isAuthenticated()) {
@@ -27,12 +27,17 @@ class Posts {
                 "title": $("#title").val(),
                 "content": $("#content").val(),
                 "user_id": user_id,
+                "image":image,
                 "postTypeID": 1,
             };
             const header = { "X-CSRF-TOKEN": token };
             sendRequest("POST", 'writepost', body, header);
         }
 
+    }
+    createPostImages()
+    {
+        
     }
     deletePost(id) {
         const users = new User();

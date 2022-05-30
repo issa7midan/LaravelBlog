@@ -12,21 +12,17 @@ class PostController extends Controller
     public function store (Request $request)
     {
         if (auth()->user() !== null ){
-            $file = $request -> file('image');
-            $thumbnail = $file->getClientOriginalName();
-            $thumbnail = trim($thumbnail);
-            $thumbnail =strtolower($thumbnail);
-            $file -> move('binary\assets\images\thumbnails');
-                $post = array('postTypeID'        => $request->postTypeID, 
-                             'user_id'            => $request->user_id,
-                             'content'            => $request->content,
-                             'title'              => $request->title,
-                             'thumbnail'          => 'binary\assets\images\thumbnails\\'.$thumbnail,
-                             'file'               => $request->file('image')
-                            );
-                            
-                Post::create($post);
-                return Filter::customizedResponse("Success",200);
+            $file       = $request -> file('image');
+            $thumbnail  = date('mdYHis') . uniqid() . '.jpg';
+            $savedImage = $request ->file('image')-> move('binary\assets\images\\',$thumbnail);
+            $post       = array('postTypeID'          => $request->postTypeID, 
+                                'user_id'             => $request->user_id,
+                                'content'             => $request->content,
+                                'title'               => $request->title,
+                                'thumbnail'           => 'binary\assets\images\\'.$thumbnail,
+                                'image'               => $request->file('image'));
+            Post::create($post);
+            return Filter::customizedResponse("Success",200);
         }
         else
             return Filter::customizedResponse('Unauthorized',403);
