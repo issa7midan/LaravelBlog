@@ -16,7 +16,7 @@ class Posts {
             sendRequest("POST", 'updatepost', body, header);
         }
     }
-    createPost(title, content,image) {
+    createPost(title, content, image = "") {
 
         const users = new User();
         if (users.isAuthenticated()) {
@@ -24,8 +24,8 @@ class Posts {
             var user = users.loggedInUser();
             var user_id = user.data[0].id
             var body = {
-                "title": $("#title").val(),
-                "content": $("#content").val(),
+                "title": title,
+                "content": content,
                 "user_id": user_id,
                 "image":image,
                 "postTypeID": 1,

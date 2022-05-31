@@ -59,12 +59,12 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::get('/user/userById/{id}','UserController@userById');
 //************ POST ROUTES **************
-Route::post('/writepost', 'PostController@store');
+Route::post('/writepost', 'PostController@store1');
 
 Route::get('/post',function(){
     return view('pages.post');
 });
-Route::post('/newpost',function(){
+Route::get('/newpost',function(){
     return view ('pages.writepost');
 });
 Route::post('/updatepost', 'PostController@update');

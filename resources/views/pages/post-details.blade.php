@@ -26,6 +26,25 @@ TemplateMo 551 Stand Blog
 https://templatemo.com/tm-551-stand-blog
 
 -->
+  <style>
+    #main-post-button {
+      display: inline-block;
+      background-color: #f48840;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px 20px;
+      text-transform: uppercase;
+      transition: all .3s;
+      border: none;
+      outline: none;
+    }
+
+    #main-post-button:hover {
+      background-color: #fb9857;
+    }
+    
+  </style>
   </head>
 
   <body>
@@ -171,7 +190,7 @@ https://templatemo.com/tm-551-stand-blog
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button" StrRes="comments" onclick="writeComment();">Submit</button>
+                              <button type="submit" id="main-post-button" class="main-button" StrRes="comments" onclick="writeComment();">Submit</button>
                             </fieldset>
                           </div>
                         </div>

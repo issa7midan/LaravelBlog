@@ -660,7 +660,7 @@ ul.page-numbers li a:hover {
 	color: #aaa;
 }
 
-.blog-posts .submit-comment button {
+/* .blog-posts .submit-comment .post-button {
 	display: inline-block;
 	background-color: #f48840;
 	color: #fff;
@@ -675,7 +675,7 @@ ul.page-numbers li a:hover {
 
 .blog-posts .submit-comment button:hover {
 	background-color: #fb9857;
-}
+} 
 
 /* Sidebar */
 

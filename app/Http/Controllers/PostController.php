@@ -28,6 +28,23 @@ class PostController extends Controller
             return Filter::customizedResponse('Unauthorized',403);
     }
 
+    public function store1 (Request $request)
+    {
+        if (auth()->user() !== null ){
+            //$file       = $request -> file('image');
+            //$thumbnail  = date('mdYHis') . uniqid() . '.jpg';
+            //$savedImage = $request ->file('image')-> move('binary\assets\images\\',$thumbnail);
+            $post       = array('postTypeID'          => $request->postTypeID, 
+                                'user_id'             => $request->user_id,
+                                'content'             => $request->content,
+                                'title'               => $request->title);
+            Post::create($post);
+            return Filter::customizedResponse("Success",200);
+        }
+        else
+            return Filter::customizedResponse('Unauthorized',403);
+    }
+
     public function destroy (Request $request)
     {
         if (auth()->user() !== null )
