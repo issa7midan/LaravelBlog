@@ -197,10 +197,12 @@ https://templatemo.com/tm-551-stand-blog
       var response = post.getPostsByWinLocation(pageNum);
       var commentsResp = new Comment();
       var posts_count =  post.getAllPosts();
+     
       var pageCount = Math.ceil(posts_count.data.length/6);
       var elementsViews = new Views();
       var user = new User();
       var comments ;
+
       displayPosts();
 
       function displayPosts() {
@@ -209,7 +211,9 @@ https://templatemo.com/tm-551-stand-blog
         var commentCount = 0;
         postDiv.innerHTML = "";
         for(i=0; i<response.data.length; i++){
+        
           var obj = response.data[i];
+     
           // var userResp = user.userById(obj.user_id);
           var content = '';
           
@@ -324,6 +328,7 @@ https://templatemo.com/tm-551-stand-blog
         aPrevious.appendChild(iPrevious);
 
         var ceil = Math.ceil(posts_count.data.length/6);
+        
         pagesNum = fillArray(Number(pageNum),ceil);
         for (i=0; i<pagesNum.length; i++)
         {
@@ -416,6 +421,7 @@ https://templatemo.com/tm-551-stand-blog
     }
     function fillArray(pageNum, ceil)
     {
+      
       arr =[];
       if (ceil > 5)
       {

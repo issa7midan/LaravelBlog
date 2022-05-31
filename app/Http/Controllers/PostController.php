@@ -65,7 +65,7 @@ class PostController extends Controller
     public function allPosts ()
 
     {
-        $post = Post::all();
+        $post = Post::orderBy('created_at','desc')->get();
         $post = Filter::customizedResponse($post,200);
         return $post;
     }
@@ -94,6 +94,7 @@ class PostController extends Controller
         ->offset($id)
         ->limit(6)
         ->select("posts.*", "users.first_name", "users.last_name")
+        ->orderBy('created_at','DESC')
         ->get();
         if (strlen($posts[0]->content) > 0)
             $posts = Filter::customizedResponse($posts, 200);
